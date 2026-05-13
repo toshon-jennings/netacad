@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The City School × Cisco NetAcad | Tech Career Pathways</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --c-bg-deep:     #07111c;
+      --c-bg:          #0d1b2a;
+      --c-bg-raised:   #132338;
+      --c-bg-card:     #162d44;
+      --c-cisco:       #1ba0d7;
+      --c-cisco-lt:    #4dc0eb;
+      --c-cyan:        #00d8ff;
+      --c-cyan-dim:    rgba(0,216,255,.12);
+      --c-cyan-border: rgba(0,216,255,.18);
+      --c-gold:        #f5a623;
+      --c-gold-dim:    rgba(245,166,35,.10);
+      --c-gold-border: rgba(245,166,35,.20);
+      --c-green:       #10b981;
+      --c-green-dim:   rgba(16,185,129,.10);
+      --c-text:        #dde8f2;
+      --c-muted:       #7a9ab8;
+      --c-subtle:      #3d5a72;
+      --c-white:       #ffffff;
+      --c-border:      rgba(255,255,255,.055);
+      --f-display: 'Barlow Condensed', sans-serif;
+      --f-body:    'DM Sans', sans-serif;
+      --f-mono:    'JetBrains Mono', monospace;
+      --max-w: 1200px; --pad-x: clamp(20px,5vw,48px);
+      --sec-y: clamp(72px,10vw,120px); --radius: 12px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--f-body);background:var(--c-bg);color:var(--c-text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+    .wrap{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x)}
+    .sec{padding:var(--sec-y) 0}
+    .sec--deep{background:var(--c-bg-deep)}
+    .sec--raised{background:var(--c-bg-raised)}
+
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c-cyan);margin-bottom:18px}
+    .eyebrow::before{content:'';width:22px;height:1px;background:var(--c-cyan);flex-shrink:0}
+    .sec-title{font-family:var(--f-display);font-size:clamp(40px,6vw,70px);font-weight:900;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:var(--c-white);margin-bottom:22px}
+    .sec-title em{font-style:normal;color:var(--c-cyan)}
+    .sec-lead{font-size:clamp(15px,1.6vw,18px);color:var(--c-muted);line-height:1.75;max-width:580px}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+    @keyframes glow-pulse{0%,100%{box-shadow:0 0 18px rgba(0,216,255,.3)}50%{box-shadow:0 0 38px rgba(0,216,255,.65)}}
+    @keyframes hero-drift{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.08)}}
+    @keyframes dot-blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .fade-up.in{opacity:1;transform:none}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 0;transition:padding .3s,background .3s,border-color .3s;border-bottom:1px solid transparent}
+    .nav.stuck{background:rgba(7,17,28,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:14px 0;border-bottom-color:var(--c-border)}
+    .nav__row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav__brand{display:flex;flex-direction:column;gap:1px}
+    .nav__brand-primary{font-family:var(--f-display);font-size:19px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--c-white);line-height:1}
+    .nav__brand-sub{font-family:var(--f-mono);font-size:9.5px;color:var(--c-cyan);letter-spacing:.14em;text-transform:uppercase}
+    .nav__links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav__links a{font-size:12px;font-weight:500;color:var(--c-muted);letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+    .nav__links a:hover{color:var(--c-white)}
+    .nav__right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .btn-present{display:inline-flex;align-items:center;gap:8px;background:var(--c-gold);color:var(--c-bg-deep);padding:9px 18px;border-radius:4px;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:background .2s,transform .15s,box-shadow .2s;white-space:nowrap}
+    .btn-present:hover{background:#ffc04d;transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,166,35,.3)}
+    .btn-present svg{width:13px;height:13px;flex-shrink:0}
+    .nav__btn{background:var(--c-cisco);color:var(--c-white);padding:9px 20px;border-radius:4px;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:background .2s,transform .15s;white-space:nowrap;display:inline-block}
+    .nav__btn:hover{background:var(--c-cyan);color:var(--c-bg);transform:translateY(-1px)}
+
+    /* HERO */
+    .hero{position:relative;min-height:100svh;display:flex;align-items:center;background:var(--c-bg-deep);overflow:hidden;padding-top:80px}
+    .hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,216,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,216,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 75%);pointer-events:none}
+    .hero__orb{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(27,160,215,.1) 0%,rgba(0,216,255,.04) 40%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:hero-drift 12s ease-in-out infinite;pointer-events:none}
+    .hero__content{position:relative;z-index:2;padding:60px 0}
+    .hero__badge{display:inline-flex;align-items:center;gap:10px;background:rgba(0,216,255,.08);border:1px solid var(--c-cyan-border);border-radius:100px;padding:7px 16px;font-family:var(--f-mono);font-size:10.5px;color:var(--c-cyan);letter-spacing:.12em;text-transform:uppercase;margin-bottom:30px;animation:fadeUp .8s ease both}
+    .hero__badge-dot{width:7px;height:7px;border-radius:50%;background:var(--c-cyan);animation:dot-blink 2.2s ease-in-out infinite}
+    .hero__title{font-family:var(--f-display);font-size:clamp(62px,10vw,130px);font-weight:900;line-height:.9;letter-spacing:-.015em;text-transform:uppercase;color:var(--c-white);margin-bottom:34px;animation:fadeUp .8s ease .08s both}
+    .hero__title .stroke{color:transparent;-webkit-text-stroke:2px var(--c-cyan)}
+    .hero__title .gold{color:var(--c-gold)}
+    .hero__body{font-size:clamp(15px,1.6vw,18px);color:var(--c-muted);max-width:520px;line-height:1.78;margin-bottom:40px;animation:fadeUp .8s ease .18s both}
+    .hero__actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:64px;animation:fadeUp .8s ease .26s both}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--c-cisco);color:var(--c-white);padding:15px 30px;border-radius:5px;font-size:14px;font-weight:600;letter-spacing:.03em;transition:background .2s,transform .15s,box-shadow .2s}
+    .btn-primary:hover{background:var(--c-cyan);color:var(--c-bg);transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,216,255,.25)}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--c-muted);font-size:14px;font-weight:500;transition:color .2s}
+    .btn-ghost:hover{color:var(--c-white)}
+    .hero__stats{display:flex;gap:48px;flex-wrap:wrap;padding-top:40px;border-top:1px solid var(--c-border);animation:fadeUp .8s ease .36s both}
+    .hero__stat-val{font-family:var(--f-display);font-size:44px;font-weight:900;color:var(--c-white);line-height:1;margin-bottom:5px}
+    .hero__stat-val span{color:var(--c-cyan)}
+    .hero__stat-lbl{font-size:12.5px;color:var(--c-muted)}
+
+    /* STRIP */
+    .strip{background:var(--c-bg-raised);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);padding:28px 0}
+    .strip__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .strip__label{font-family:var(--f-mono);font-size:10px;color:var(--c-subtle);text-transform:uppercase;letter-spacing:.14em;white-space:nowrap}
+    .strip__certs{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+    .cert-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:100px;font-size:11.5px;font-weight:600;border:1px solid;white-space:nowrap}
+    .cert-chip--cisco{background:rgba(27,160,215,.1);border-color:rgba(27,160,215,.2);color:var(--c-cisco-lt)}
+    .cert-chip--comptia{background:var(--c-gold-dim);border-color:var(--c-gold-border);color:var(--c-gold)}
+    .cert-chip__dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,96px);align-items:center}
+    .feature-list{display:flex;flex-direction:column;gap:20px;margin-top:36px}
+    .feature{display:flex;align-items:flex-start;gap:16px}
+    .feature__icon{width:40px;height:40px;border-radius:10px;background:var(--c-cyan-dim);border:1px solid var(--c-cyan-border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .feature__title{font-size:15px;font-weight:600;color:var(--c-white);margin-bottom:3px}
+    .feature__desc{font-size:13.5px;color:var(--c-muted);line-height:1.65}
+    .stats-card{background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden}
+    .stats-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c-cisco),var(--c-cyan))}
+    .stats-card__label{font-family:var(--f-mono);font-size:10px;color:var(--c-cyan);text-transform:uppercase;letter-spacing:.14em;margin-bottom:20px}
+    .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .stat-box{background:rgba(0,0,0,.18);border-radius:8px;padding:18px 14px;text-align:center}
+    .stat-box__val{font-family:var(--f-display);font-size:36px;font-weight:900;color:var(--c-cyan);line-height:1}
+    .stat-box__lbl{font-size:11px;color:var(--c-muted);margin-top:5px}
+
+    /* PATHWAYS */
+    .pathways-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:52px;flex-wrap:wrap}
+    .pathways-hd__note{max-width:340px;font-size:14.5px;color:var(--c-muted);line-height:1.7}
+    .paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .path-card{background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:var(--radius);padding:36px 30px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease,border-color .3s ease}
+    .path-card:hover{transform:translateY(-6px);border-color:rgba(0,216,255,.2)}
+    .path-card__num{position:absolute;top:12px;right:18px;font-family:var(--f-display);font-size:88px;font-weight:900;color:rgba(255,255,255,.03);line-height:1;pointer-events:none}
+    .path-card__icon{width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px}
+    .icon--it{background:rgba(245,166,35,.12)}.icon--net{background:rgba(27,160,215,.12)}.icon--cyber{background:var(--c-green-dim)}
+    .path-card__track{font-family:var(--f-mono);font-size:9.5px;color:var(--c-subtle);text-transform:uppercase;letter-spacing:.16em;margin-bottom:7px}
+    .path-card__title{font-family:var(--f-display);font-size:30px;font-weight:900;color:var(--c-white);text-transform:uppercase;line-height:1.05;margin-bottom:14px}
+    .path-card__body{font-size:13.5px;color:var(--c-muted);line-height:1.72;margin-bottom:22px;flex:1}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+    .skill-tag{padding:4px 10px;border-radius:4px;background:rgba(255,255,255,.045);border:1px solid var(--c-border);font-size:11px;color:var(--c-muted);font-weight:500}
+    .path-card__certs{border-top:1px solid var(--c-border);padding-top:18px}
+    .certs-lbl{font-family:var(--f-mono);font-size:9px;color:var(--c-subtle);text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px}
+    .certs-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+    .pill{padding:5px 12px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.04em;border:1px solid}
+    .pill--cisco{background:rgba(27,160,215,.12);border-color:rgba(27,160,215,.22);color:var(--c-cisco-lt)}
+    .pill--comptia{background:var(--c-gold-dim);border-color:var(--c-gold-border);color:var(--c-gold)}
+    .salary-row{display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.18);border-radius:7px;padding:12px 14px}
+    .salary-lbl{font-size:11px;color:var(--c-subtle)}
+    .salary-val{font-family:var(--f-display);font-size:19px;font-weight:800;color:var(--c-white)}
+
+    /* GOAL */
+    .goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,96px);align-items:center}
+    .journey{display:flex;flex-direction:column;margin-top:40px}
+    .journey-step{display:flex;gap:20px;align-items:flex-start;position:relative}
+    .journey-step:not(:last-child)::after{content:'';position:absolute;left:19px;top:42px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--c-cisco),rgba(27,160,215,.08))}
+    .journey-step__node{width:40px;height:40px;border-radius:50%;border:2px solid var(--c-cisco);background:var(--c-bg);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:12px;font-weight:600;color:var(--c-cisco);flex-shrink:0;position:relative;z-index:1}
+    .journey-step--goal .journey-step__node{background:var(--c-cisco);color:var(--c-white);border-color:var(--c-cyan);animation:glow-pulse 2.5s infinite}
+    .journey-step__body{padding:6px 0 36px}
+    .journey-step__title{font-family:var(--f-display);font-size:21px;font-weight:800;color:var(--c-white);text-transform:uppercase;margin-bottom:5px}
+    .journey-step--goal .journey-step__title{color:var(--c-cyan)}
+    .journey-step__desc{font-size:13.5px;color:var(--c-muted);line-height:1.68}
+    .goal-callout{background:linear-gradient(145deg,var(--c-bg-card),rgba(27,160,215,.05));border:1px solid var(--c-cyan-border);border-radius:16px;padding:clamp(32px,4vw,52px) clamp(28px,4vw,44px);position:relative;overflow:hidden}
+    .goal-callout::before{content:'"';position:absolute;top:-30px;right:20px;font-family:var(--f-display);font-size:220px;font-weight:900;color:rgba(0,216,255,.04);line-height:1;pointer-events:none}
+    .goal-callout__text{font-family:var(--f-display);font-size:clamp(24px,2.8vw,32px);font-weight:800;color:var(--c-white);text-transform:uppercase;line-height:1.28;margin-bottom:22px}
+    .goal-callout__text em{font-style:normal;color:var(--c-cyan)}
+    .goal-callout__body{font-size:14.5px;color:var(--c-muted);line-height:1.75}
+
+    /* WHO */
+    .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+    .who-card{padding:36px 32px;border-radius:var(--radius);border:1px solid var(--c-border);background:var(--c-bg-card);transition:border-color .3s,transform .3s}
+    .who-card:hover{border-color:var(--c-cyan-border);transform:translateY(-4px)}
+    .who-card--now{border-color:var(--c-cyan-border);background:linear-gradient(145deg,var(--c-bg-card),rgba(27,160,215,.05))}
+    .who-card__tag{font-family:var(--f-mono);font-size:9.5px;color:var(--c-cyan);text-transform:uppercase;letter-spacing:.16em;margin-bottom:8px}
+    .who-card--later .who-card__tag{color:var(--c-subtle)}
+    .who-card__title{font-family:var(--f-display);font-size:28px;font-weight:900;color:var(--c-white);text-transform:uppercase;margin-bottom:14px}
+    .who-card__body{font-size:14px;color:var(--c-muted);line-height:1.72}
+    .who-card__note{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:7px 14px;border-radius:100px;font-size:12px;font-weight:500}
+    .who-card--now  .who-card__note{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);color:var(--c-green)}
+    .who-card--later .who-card__note{background:rgba(148,163,184,.06);border:1px solid rgba(148,163,184,.1);color:var(--c-muted)}
+
+    /* FAQ */
+    .faq-wrap{margin-top:48px;max-width:780px;display:flex;flex-direction:column;gap:10px}
+    .faq-item{border:1px solid var(--c-border);border-radius:10px;overflow:hidden;background:var(--c-bg-card);transition:border-color .25s}
+    .faq-item.open{border-color:var(--c-cyan-border)}
+    .faq-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;text-align:left}
+    .faq-btn__q{font-size:15px;font-weight:500;color:var(--c-text);line-height:1.4}
+    .faq-btn__icon{width:26px;height:26px;border-radius:50%;background:var(--c-cyan-dim);border:1px solid var(--c-cyan-border);display:flex;align-items:center;justify-content:center;color:var(--c-cyan);font-size:17px;flex-shrink:0;transition:transform .3s;line-height:1}
+    .faq-item.open .faq-btn__icon{transform:rotate(45deg)}
+    .faq-body{max-height:0;overflow:hidden;transition:max-height .42s ease}
+    .faq-item.open .faq-body{max-height:400px}
+    .faq-body__inner{padding:16px 24px 22px;font-size:14px;color:var(--c-muted);line-height:1.78;border-top:1px solid var(--c-border)}
+
+    /* FOOTER */
+    .footer{background:var(--c-bg-deep);border-top:1px solid var(--c-border);padding:64px 0 36px}
+    .footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .footer__name{font-family:var(--f-display);font-size:22px;font-weight:900;text-transform:uppercase;color:var(--c-white);letter-spacing:.03em;margin-bottom:12px}
+    .footer__tagline{font-size:13.5px;color:var(--c-muted);line-height:1.7;max-width:270px;margin-bottom:18px}
+    .footer__badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(27,160,215,.1);border:1px solid rgba(27,160,215,.2);border-radius:5px;font-size:11px;color:var(--c-cisco-lt);font-weight:500}
+    .footer__hd{font-family:var(--f-display);font-size:13px;font-weight:700;color:var(--c-white);text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px}
+    .footer__links{list-style:none;display:flex;flex-direction:column;gap:11px}
+    .footer__links a{font-size:13.5px;color:var(--c-muted);transition:color .2s}
+    .footer__links a:hover{color:var(--c-white)}
+    .campus-block{font-size:13px;color:var(--c-muted);line-height:1.8;margin-bottom:12px}
+    .campus-block strong{display:block;color:var(--c-text);font-weight:600}
+    .footer__btm{padding-top:28px;border-top:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11.5px;color:var(--c-subtle)}
+    .footer__btm a{color:var(--c-subtle);transition:color .2s}
+    .footer__btm a:hover{color:var(--c-muted)}
+
+    /* ============================
+       PRESENTATION MODE
+       ============================ */
+    #pres-overlay{display:none;position:fixed;inset:0;z-index:9999;background:var(--c-bg-deep);flex-direction:column;overflow:hidden}
+    #pres-overlay.active{display:flex}
+
+    #pres-progress{position:absolute;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--c-cisco),var(--c-cyan));transition:width .35s ease;z-index:2}
+
+    #pres-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 64px;overflow:hidden;position:relative}
+
+    .pslide{display:none;width:100%;max-width:1080px;animation:fadeUp .42s ease both}
+    .pslide.active{display:block}
+
+    /* slide shared helpers */
+    .ps-eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c-cyan);margin-bottom:14px}
+    .ps-eyebrow::before{content:'';width:20px;height:1px;background:var(--c-cyan);flex-shrink:0}
+    .ps-h2{font-family:var(--f-display);font-size:clamp(38px,5.5vw,72px);font-weight:900;line-height:.93;text-transform:uppercase;color:var(--c-white);margin-bottom:18px}
+    .ps-h2 em{font-style:normal;color:var(--c-cyan)}
+    .ps-body{font-size:clamp(14px,1.4vw,17px);color:var(--c-muted);line-height:1.75}
+    .ps-two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+
+    /* title slide */
+    .ps-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(0,216,255,.08);border:1px solid var(--c-cyan-border);border-radius:100px;padding:7px 18px;font-family:var(--f-mono);font-size:11px;color:var(--c-cyan);letter-spacing:.12em;text-transform:uppercase;margin-bottom:28px}
+    .ps-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--c-cyan);animation:dot-blink 2.2s ease-in-out infinite}
+    .ps-big{font-family:var(--f-display);font-size:clamp(64px,9vw,120px);font-weight:900;line-height:.9;text-transform:uppercase;color:var(--c-white);margin-bottom:28px}
+    .ps-big .stroke{color:transparent;-webkit-text-stroke:2px var(--c-cyan)}
+    .ps-big .gold{color:var(--c-gold)}
+    .ps-lead{font-size:clamp(16px,1.8vw,20px);color:var(--c-muted);max-width:560px;line-height:1.7;margin-bottom:36px}
+    .ps-stat-row{display:flex;gap:44px;flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--c-border)}
+    .ps-sv{font-family:var(--f-display);font-size:48px;font-weight:900;color:var(--c-white);line-height:1}
+    .ps-sv span{color:var(--c-cyan)}
+    .ps-sl{font-size:13px;color:var(--c-muted);margin-top:4px}
+
+    /* feature list */
+    .ps-feats{display:flex;flex-direction:column;gap:18px;margin-top:24px}
+    .ps-feat{display:flex;gap:14px;align-items:flex-start}
+    .ps-feat__icon{width:38px;height:38px;border-radius:9px;background:var(--c-cyan-dim);border:1px solid var(--c-cyan-border);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+    .ps-feat__title{font-size:14px;font-weight:600;color:var(--c-white);margin-bottom:2px}
+    .ps-feat__desc{font-size:12.5px;color:var(--c-muted);line-height:1.6}
+
+    /* numbers card */
+    .ps-numcard{background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:var(--radius);padding:28px;position:relative;overflow:hidden}
+    .ps-numcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c-cisco),var(--c-cyan))}
+    .ps-numcard__lbl{font-family:var(--f-mono);font-size:9.5px;color:var(--c-cyan);text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px}
+    .ps-numgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .ps-numbox{background:rgba(0,0,0,.2);border-radius:8px;padding:16px;text-align:center}
+    .ps-numbox__val{font-family:var(--f-display);font-size:38px;font-weight:900;color:var(--c-cyan);line-height:1}
+    .ps-numbox__lbl{font-size:11px;color:var(--c-muted);margin-top:4px}
+
+    /* path cards */
+    .ps-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+    .ps-path{background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:10px;padding:24px 20px}
+    .ps-path__ico{font-size:28px;margin-bottom:14px}
+    .ps-path__track{font-family:var(--f-mono);font-size:9px;color:var(--c-subtle);text-transform:uppercase;letter-spacing:.14em;margin-bottom:5px}
+    .ps-path__title{font-family:var(--f-display);font-size:22px;font-weight:900;color:var(--c-white);text-transform:uppercase;margin-bottom:8px;line-height:1}
+    .ps-path__desc{font-size:12.5px;color:var(--c-muted);line-height:1.6;margin-bottom:14px}
+    .ps-path__pills{display:flex;flex-wrap:wrap;gap:5px}
+
+    /* journey */
+    .ps-journey{display:flex;flex-direction:column;margin-top:8px}
+    .ps-step{display:flex;gap:16px;align-items:flex-start;position:relative}
+    .ps-step:not(:last-child)::after{content:'';position:absolute;left:16px;top:34px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--c-cisco),rgba(27,160,215,.08))}
+    .ps-step__node{width:34px;height:34px;border-radius:50%;border:2px solid var(--c-cisco);background:var(--c-bg);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:11px;font-weight:600;color:var(--c-cisco);flex-shrink:0;position:relative;z-index:1}
+    .ps-step--goal .ps-step__node{background:var(--c-cisco);color:var(--c-white);border-color:var(--c-cyan);animation:glow-pulse 2.5s infinite}
+    .ps-step__body{padding:4px 0 24px}
+    .ps-step__title{font-family:var(--f-display);font-size:18px;font-weight:800;color:var(--c-white);text-transform:uppercase;margin-bottom:3px}
+    .ps-step--goal .ps-step__title{color:var(--c-cyan)}
+    .ps-step__desc{font-size:12.5px;color:var(--c-muted);line-height:1.6}
+
+    /* callout */
+    .ps-callout{background:linear-gradient(145deg,var(--c-bg-card),rgba(27,160,215,.05));border:1px solid var(--c-cyan-border);border-radius:14px;padding:36px 32px;position:relative;overflow:hidden}
+    .ps-callout::before{content:'"';position:absolute;top:-20px;right:16px;font-family:var(--f-display);font-size:180px;font-weight:900;color:rgba(0,216,255,.04);line-height:1;pointer-events:none}
+    .ps-callout__text{font-family:var(--f-display);font-size:clamp(22px,2.5vw,30px);font-weight:800;color:var(--c-white);text-transform:uppercase;line-height:1.28;margin-bottom:18px}
+    .ps-callout__text em{font-style:normal;color:var(--c-cyan)}
+    .ps-callout__body{font-size:13.5px;color:var(--c-muted);line-height:1.7}
+
+    /* who cards */
+    .ps-who{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+    .ps-whocard{padding:24px;border-radius:10px;border:1px solid var(--c-border);background:var(--c-bg-card)}
+    .ps-whocard--now{border-color:var(--c-cyan-border);background:linear-gradient(145deg,var(--c-bg-card),rgba(27,160,215,.05))}
+    .ps-whocard__tag{font-family:var(--f-mono);font-size:9px;color:var(--c-cyan);text-transform:uppercase;letter-spacing:.16em;margin-bottom:6px}
+    .ps-whocard--later .ps-whocard__tag{color:var(--c-subtle)}
+    .ps-whocard__title{font-family:var(--f-display);font-size:22px;font-weight:900;color:var(--c-white);text-transform:uppercase;margin-bottom:10px}
+    .ps-whocard__body{font-size:13px;color:var(--c-muted);line-height:1.65}
+    .ps-whocard__note{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:5px 12px;border-radius:100px;font-size:11.5px;font-weight:500}
+    .ps-whocard--now  .ps-whocard__note{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);color:var(--c-green)}
+    .ps-whocard--later .ps-whocard__note{background:rgba(148,163,184,.06);border:1px solid rgba(148,163,184,.1);color:var(--c-muted)}
+
+    /* chip row reuse */
+    .ps-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+
+    /* CONTROLS BAR */
+    #pres-controls{flex-shrink:0;background:rgba(7,17,28,.88);backdrop-filter:blur(12px);border-top:1px solid var(--c-border);padding:13px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:2}
+    #pres-info{font-family:var(--f-mono);font-size:10.5px;color:var(--c-subtle);letter-spacing:.1em;white-space:nowrap}
+    #pres-slide-name{font-family:var(--f-mono);font-size:10.5px;color:var(--c-muted);letter-spacing:.06em}
+    #pres-dots{display:flex;align-items:center;gap:5px}
+    .pdot{width:6px;height:6px;border-radius:50%;background:var(--c-subtle);border:none;padding:0;cursor:pointer;transition:background .2s,width .25s}
+    .pdot.on{background:var(--c-cyan);width:18px;border-radius:3px}
+    .pnav-btns{display:flex;gap:8px}
+    .pnav-btn{width:38px;height:38px;border-radius:8px;background:var(--c-bg-card);border:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;color:var(--c-muted);font-size:18px;transition:background .2s,border-color .2s,color .2s}
+    .pnav-btn:hover:not(:disabled){background:var(--c-bg-raised);border-color:var(--c-cyan-border);color:var(--c-cyan)}
+    .pnav-btn:disabled{opacity:.3;cursor:default}
+    .pexit{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:6px;background:rgba(255,255,255,.05);border:1px solid var(--c-border);color:var(--c-muted);font-size:11.5px;font-weight:500;transition:background .2s,color .2s}
+    .pexit:hover{background:rgba(255,255,255,.09);color:var(--c-text)}
+
+    /* keyboard hint */
+    #pres-hint{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);font-family:var(--f-mono);font-size:10px;color:var(--c-subtle);letter-spacing:.1em;text-transform:uppercase;pointer-events:none;z-index:3;display:flex;align-items:center;gap:14px;white-space:nowrap;transition:opacity .5s}
+    #pres-hint.gone{opacity:0}
+    #pres-hint kbd{background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:4px;padding:2px 7px;font-family:inherit;font-size:10px;color:var(--c-muted)}
+
+    /* RESPONSIVE */
+    @media(max-width:940px){
+      .about-grid,.goal-grid,.who-grid{grid-template-columns:1fr;gap:40px}
+      .paths-grid{grid-template-columns:1fr}
+      .pathways-hd{flex-direction:column}
+      .footer__grid{grid-template-columns:1fr 1fr}
+      .footer__grid>:first-child{grid-column:1/-1}
+      .nav__links{display:none}
+      .ps-two,.ps-paths,.ps-who{grid-template-columns:1fr;gap:20px}
+    }
+    @media(max-width:600px){
+      :root{--sec-y:64px}
+      .hero__stats{gap:24px}
+      .strip__inner{justify-content:center}
+      .stats-grid{grid-template-columns:1fr 1fr}
+      .footer__grid{grid-template-columns:1fr}
+      .footer__btm{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav__row">
+      <a href="#top" class="nav__brand">
+        <span class="nav__brand-primary">The City School</span>
+        <span class="nav__brand-sub">× Cisco Networking Academy</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#pathways">Pathways</a></li>
+        <li><a href="#goal">The Goal</a></li>
+        <li><a href="#eligibility">Who Qualifies</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav__right">
+        <button class="btn-present" id="enterPresBtn">
+          <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 10v2m4-2v2M3 12h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Present
+        </button>
+        <a href="#pathways" class="nav__btn">Explore →</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__orb"></div>
+  <div class="wrap">
+    <div class="hero__content">
+      <div class="hero__badge"><span class="hero__badge-dot"></span>Launching 2026–27 School Year &nbsp;·&nbsp; Class of 2027</div>
+      <h1 class="hero__title">Launch<br><span class="stroke">Your Career</span><br><span class="gold">In Tech.</span></h1>
+      <p class="hero__body">The City School is now an official Cisco Networking Academy. Philadelphia students can earn industry-recognized certifications — the same credentials that open doors at top companies — before they even walk across the stage.</p>
+      <div class="hero__actions">
+        <a href="#pathways" class="btn-primary">Explore the Pathways →</a>
+        <a href="#about" class="btn-ghost">↓ Learn about NetAcad</a>
+      </div>
+      <div class="hero__stats">
+        <div><div class="hero__stat-val">3<span>+</span></div><div class="hero__stat-lbl">Certification Pathways</div></div>
+        <div><div class="hero__stat-val">190<span>+</span></div><div class="hero__stat-lbl">Countries in NetAcad</div></div>
+        <div><div class="hero__stat-val">15M<span>+</span></div><div class="hero__stat-lbl">Students Globally</div></div>
+        <div><div class="hero__stat-val">1<span>+</span></div><div class="hero__stat-lbl">Cert Goal at Graduation</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERT STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <div class="strip__inner">
+      <span class="strip__label">Certifications you can earn</span>
+      <div class="strip__certs">
+        <span class="cert-chip cert-chip--cisco"><span class="cert-chip__dot"></span>Cisco CCNA</span>
+        <span class="cert-chip cert-chip--cisco"><span class="cert-chip__dot"></span>Cisco CyberOps Associate</span>
+        <span class="cert-chip cert-chip--comptia"><span class="cert-chip__dot"></span>CompTIA A+</span>
+        <span class="cert-chip cert-chip--comptia"><span class="cert-chip__dot"></span>CompTIA Network+</span>
+        <span class="cert-chip cert-chip--comptia"><span class="cert-chip__dot"></span>CompTIA Security+</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="fade-up">
+        <div class="eyebrow">The Partnership</div>
+        <h2 class="sec-title">What is<br><em>Cisco NetAcad?</em></h2>
+        <p class="sec-lead">Cisco Networking Academy is one of the world's largest IT and networking education programs — operating in 190+ countries, training over 15 million students. The City School is now an official Academy, giving our students the same curriculum, tools, and certification pathways used globally.</p>
+        <div class="feature-list">
+          <div class="feature"><div class="feature__icon">📡</div><div><div class="feature__title">Industry-backed curriculum</div><div class="feature__desc">Built and maintained by Cisco — a global leader in networking, cloud, and cybersecurity infrastructure.</div></div></div>
+          <div class="feature"><div class="feature__icon">🏅</div><div><div class="feature__title">Real credentials, real value</div><div class="feature__desc">Cisco and CompTIA certifications are actively sought by employers in IT, government, healthcare, and beyond.</div></div></div>
+          <div class="feature"><div class="feature__icon">🛤️</div><div><div class="feature__title">Stackable pathways</div><div class="feature__desc">Start foundational, build upward. Each cert strengthens the next — and your career ceiling rises with every one you earn.</div></div></div>
+          <div class="feature"><div class="feature__icon">🎓</div><div><div class="feature__title">College and career ready</div><div class="feature__desc">These certs strengthen college applications and qualify students for entry-level tech roles without a degree.</div></div></div>
+        </div>
+      </div>
+      <div class="fade-up" style="transition-delay:.1s">
+        <div class="stats-card">
+          <div class="stats-card__label">NetAcad · By the Numbers</div>
+          <div class="stats-grid">
+            <div class="stat-box"><div class="stat-box__val">190+</div><div class="stat-box__lbl">Countries</div></div>
+            <div class="stat-box"><div class="stat-box__val">15M+</div><div class="stat-box__lbl">Students Trained</div></div>
+            <div class="stat-box"><div class="stat-box__val">30+</div><div class="stat-box__lbl">Years of Operation</div></div>
+            <div class="stat-box"><div class="stat-box__val">Free</div><div class="stat-box__lbl">Via Our Academy</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATHWAYS -->
+<section class="sec sec--deep" id="pathways">
+  <div class="wrap">
+    <div class="pathways-hd fade-up">
+      <div><div class="eyebrow">The Tracks</div><h2 class="sec-title">Choose Your<br><em>Pathway</em></h2></div>
+      <p class="pathways-hd__note">Three focused tracks. Each builds toward high-demand careers and recognized industry certifications. All lead somewhere real.</p>
+    </div>
+    <div class="paths-grid">
+      <article class="path-card fade-up">
+        <div class="path-card__num" aria-hidden="true">01</div>
+        <div class="path-card__icon icon--it">💻</div>
+        <div class="path-card__track">Foundation · Pathway 1</div>
+        <h3 class="path-card__title">IT Essentials</h3>
+        <p class="path-card__body">Build the hardware, software, and troubleshooting skills every IT career starts from. You'll understand how computers work inside and out — and know what to do when they don't.</p>
+        <div class="skill-tags"><span class="skill-tag">Hardware</span><span class="skill-tag">Operating Systems</span><span class="skill-tag">Troubleshooting</span><span class="skill-tag">Device Setup</span><span class="skill-tag">Help Desk</span></div>
+        <div class="path-card__certs"><div class="certs-lbl">Leads to certifications</div><div class="certs-pills"><span class="pill pill--comptia">CompTIA A+</span></div><div class="salary-row"><span class="salary-lbl">Entry-level salary range</span><span class="salary-val">$45–55K</span></div></div>
+      </article>
+      <article class="path-card fade-up" style="transition-delay:.1s">
+        <div class="path-card__num" aria-hidden="true">02</div>
+        <div class="path-card__icon icon--net">🌐</div>
+        <div class="path-card__track">Intermediate · Pathway 2</div>
+        <h3 class="path-card__title">Networking</h3>
+        <p class="path-card__body">Go beyond the basics into how the internet actually works. Routing, switching, protocols, cloud infrastructure — the backbone of everything connected, and the people who understand it are always in demand.</p>
+        <div class="skill-tags"><span class="skill-tag">Routing &amp; Switching</span><span class="skill-tag">Protocols</span><span class="skill-tag">Cloud Fundamentals</span><span class="skill-tag">Infrastructure</span><span class="skill-tag">Cisco IOS</span></div>
+        <div class="path-card__certs"><div class="certs-lbl">Leads to certifications</div><div class="certs-pills"><span class="pill pill--cisco">Cisco CCNA</span><span class="pill pill--comptia">CompTIA Network+</span></div><div class="salary-row"><span class="salary-lbl">Entry-level salary range</span><span class="salary-val">$55–75K</span></div></div>
+      </article>
+      <article class="path-card fade-up" style="transition-delay:.2s">
+        <div class="path-card__num" aria-hidden="true">03</div>
+        <div class="path-card__icon icon--cyber">🛡️</div>
+        <div class="path-card__track">Advanced · Pathway 3</div>
+        <h3 class="path-card__title">Cybersecurity</h3>
+        <p class="path-card__body">Identify threats, defend networks, and respond to incidents in real time. Cybersecurity is one of the fastest-growing and highest-demand fields globally — we're training students to compete in it.</p>
+        <div class="skill-tags"><span class="skill-tag">Threat Detection</span><span class="skill-tag">Network Defense</span><span class="skill-tag">Security Ops</span><span class="skill-tag">Incident Response</span><span class="skill-tag">Risk Assessment</span></div>
+        <div class="path-card__certs"><div class="certs-lbl">Leads to certifications</div><div class="certs-pills"><span class="pill pill--cisco">Cisco CyberOps</span><span class="pill pill--comptia">CompTIA Security+</span></div><div class="salary-row"><span class="salary-lbl">Entry-level salary range</span><span class="salary-val">$65–95K+</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GOAL -->
+<section class="sec sec--raised" id="goal">
+  <div class="wrap">
+    <div class="goal-grid">
+      <div class="fade-up">
+        <div class="eyebrow">The Mission</div>
+        <h2 class="sec-title">The <em>Certification</em><br>Journey</h2>
+        <p class="sec-lead">Every student who completes a pathway will be equipped to sit for a certification exam. That's the floor. The ceiling is walking across the stage certified.</p>
+        <div class="journey">
+          <div class="journey-step"><div class="journey-step__node">1</div><div class="journey-step__body"><div class="journey-step__title">Enroll &amp; Explore</div><div class="journey-step__desc">Join a pathway that matches your interests. No prior tech experience required — just the willingness to learn.</div></div></div>
+          <div class="journey-step"><div class="journey-step__node">2</div><div class="journey-step__body"><div class="journey-step__title">Build Real Skills</div><div class="journey-step__desc">Work through Cisco's hands-on curriculum — simulations, labs, and real-world scenarios.</div></div></div>
+          <div class="journey-step"><div class="journey-step__node">3</div><div class="journey-step__body"><div class="journey-step__title">Become Cert-Ready</div><div class="journey-step__desc">Our minimum guarantee: every student who completes a pathway leaves fully prepared to pass a certification exam.</div></div></div>
+          <div class="journey-step journey-step--goal"><div class="journey-step__node">🏅</div><div class="journey-step__body"><div class="journey-step__title">Earn Your Certification</div><div class="journey-step__desc">The real goal: graduate with at least one industry-recognized certification in hand — and a genuine advantage for what comes next.</div></div></div>
+        </div>
+      </div>
+      <div class="fade-up" style="transition-delay:.12s">
+        <div class="goal-callout">
+          <p class="goal-callout__text">Our minimum goal:<br>every student leaves<br><em>cert-ready.</em><br><br>Our real goal:<br>they graduate<br><em>certified.</em></p>
+          <p class="goal-callout__body">A Cisco or CompTIA certification is a verifiable signal to employers, colleges, and the world that a City School student showed up, did the work, and has the documented skills to prove it. That matters — especially here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section class="sec sec--deep" id="eligibility">
+  <div class="wrap">
+    <div class="fade-up"><div class="eyebrow">Who Can Join</div><h2 class="sec-title">Built for<br><em>City School</em> Students</h2></div>
+    <div class="who-grid">
+      <div class="who-card who-card--now fade-up">
+        <div class="who-card__tag">Starting Now · 2026–2027</div>
+        <h3 class="who-card__title">Seniors · Class of 2027</h3>
+        <p class="who-card__body">We're launching with students at our Poplar Street campus (grades 6–12). If you're in the Class of 2027, you're first. Get certified before you graduate — and start your next chapter with a credential that actually moves the needle.</p>
+        <span class="who-card__note">✅ Enrolling for next school year</span>
+      </div>
+      <div class="who-card who-card--later fade-up" style="transition-delay:.1s">
+        <div class="who-card__tag">Future Expansion</div>
+        <h3 class="who-card__title">Juniors &amp; Beyond</h3>
+        <p class="who-card__body">We're building toward opening these pathways to juniors and younger students over time. The earlier you start, the more certifications you can stack before graduation. More details as the program grows.</p>
+        <span class="who-card__note">🔜 Coming in future school years</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="fade-up"><div class="eyebrow">Got Questions?</div><h2 class="sec-title">Frequently<br><em>Asked</em></h2></div>
+    <div class="faq-wrap fade-up" style="transition-delay:.08s">
+      <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-btn__q">Do I need to already know coding or computer repair to join?</span><span class="faq-btn__icon">+</span></button><div class="faq-body"><div class="faq-body__inner">No prior experience required — that's the whole point of starting with IT Essentials. The Networking and Cybersecurity tracks build from there in a logical progression. We'll meet every student where they are.</div></div></div>
+      <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-btn__q">Does this cost anything? Do I have to pay for the certification exam?</span><span class="faq-btn__icon">+</span></button><div class="faq-body"><div class="faq-body__inner">The curriculum is provided through the school's NetAcad partnership at no cost to students. Certification exam logistics — including any fees or school support — will be finalized and communicated before the 2026–2027 school year. Our goal is to remove as many barriers as possible.</div></div></div>
+      <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-btn__q">What can I actually do with one of these certifications?</span><span class="faq-btn__icon">+</span></button><div class="faq-body"><div class="faq-body__inner">A Cisco or CompTIA certification is recognized by employers across the country. With a CompTIA A+, you can apply for entry-level IT support roles right after graduation. With a CCNA or Security+, you're competitive for network technician and security analyst positions — often $50K+ to start. These certs also strengthen college applications.</div></div></div>
+      <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-btn__q">How long does it take to complete a pathway?</span><span class="faq-btn__icon">+</span></button><div class="faq-body"><div class="faq-body__inner">Pathway length depends on the track and how the course is integrated into the school schedule. Timing details will be shared before enrollment for the 2026–2027 school year. The program is designed to work within your school year.</div></div></div>
+      <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-btn__q">Which campus is this at? What about Fairmount?</span><span class="faq-btn__icon">+</span></button><div class="faq-body"><div class="faq-body__inner">The program launches at Poplar Street (grades 6–12) for the 2026–2027 school year, starting with seniors. We are actively exploring how to expand grade levels served and include our Fairmount campus (K–5) as the program matures.</div></div></div>
+      <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-btn__q">I'm a parent. How will I find out if my child is eligible?</span><span class="faq-btn__icon">+</span></button><div class="faq-body"><div class="faq-body__inner">Communication will go home to families before the start of the 2026–2027 school year with enrollment details and next steps. Questions in the meantime? Reach out to Ashley Fornwalt (Academic Support Coordinator) or the Poplar Street main office.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__name">The City School</div>
+        <p class="footer__tagline">Preparing Philadelphia students for careers, college, and the world — now with industry-recognized technology credentials through Cisco NetAcad.</p>
+        <div class="footer__badge">🔵 Official Cisco Networking Academy Partner</div>
+      </div>
+      <div>
+        <div class="footer__hd">Quick Links</div>
+        <ul class="footer__links">
+          <li><a href="#about">About NetAcad</a></li>
+          <li><a href="#pathways">The Pathways</a></li>
+          <li><a href="#goal">Certification Journey</a></li>
+          <li><a href="#eligibility">Who Can Join</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__hd">Our Campuses</div>
+        <div class="campus-block"><strong>Poplar Street (POP) · Grades 6–12</strong>Philadelphia, PA</div>
+        <div class="campus-block"><strong>Fairmount (FM) · Grades K–5</strong>Philadelphia, PA</div>
+        <div class="campus-block" style="margin-top:18px"><strong>Program Questions</strong>Ashley Fornwalt<br>Academic Support Coordinator</div>
+      </div>
+    </div>
+    <div class="footer__btm">
+      <span>© 2025–26 The City School · Philadelphia, PA</span>
+      <span><a href="https://netacad.com" target="_blank" rel="noopener">netacad.com</a> · <a href="https://cisco.com" target="_blank" rel="noopener">cisco.com</a> · <a href="https://comptia.org" target="_blank" rel="noopener">comptia.org</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================
+     PRESENTATION OVERLAY
+     ============================ -->
+<div id="pres-overlay" role="dialog" aria-modal="true" aria-label="Presentation mode">
+
+  <div id="pres-progress"></div>
+
+  <div id="pres-stage">
+
+    <!-- SLIDE 1 · Title -->
+    <div class="pslide active" data-title="The Partnership">
+      <div class="ps-badge"><span class="ps-badge-dot"></span>Launching 2026–27 · Class of 2027</div>
+      <h1 class="ps-big">Launch<br><span class="stroke">Your Career</span><br><span class="gold">In Tech.</span></h1>
+      <p class="ps-lead">The City School has partnered with Cisco Networking Academy — giving students access to industry-recognized certifications before they graduate.</p>
+      <div class="ps-stat-row">
+        <div><div class="ps-sv">3<span>+</span></div><div class="ps-sl">Pathways</div></div>
+        <div><div class="ps-sv">190<span>+</span></div><div class="ps-sl">Countries in NetAcad</div></div>
+        <div><div class="ps-sv">15M<span>+</span></div><div class="ps-sl">Students Globally</div></div>
+        <div><div class="ps-sv">1<span>+</span></div><div class="ps-sl">Cert Goal at Graduation</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 · What is NetAcad -->
+    <div class="pslide" data-title="What is Cisco NetAcad?">
+      <div class="ps-two">
+        <div>
+          <div class="ps-eyebrow">The Partnership</div>
+          <h2 class="ps-h2">What is<br><em>Cisco NetAcad?</em></h2>
+          <p class="ps-body">Cisco Networking Academy is one of the world's largest IT education programs — 190+ countries, 15 million students, 30+ years. The City School is now an official Academy, providing our students the same curriculum, tools, and pathways used globally.</p>
+          <div class="ps-feats">
+            <div class="ps-feat"><div class="ps-feat__icon">📡</div><div><div class="ps-feat__title">Industry-backed curriculum</div><div class="ps-feat__desc">Built by Cisco — a global leader in networking and cybersecurity infrastructure.</div></div></div>
+            <div class="ps-feat"><div class="ps-feat__icon">🏅</div><div><div class="ps-feat__title">Real credentials, real value</div><div class="ps-feat__desc">Cisco and CompTIA certs are actively sought by employers across industries.</div></div></div>
+            <div class="ps-feat"><div class="ps-feat__icon">🎓</div><div><div class="ps-feat__title">College and career ready</div><div class="ps-feat__desc">Strengthens college apps and qualifies students for entry-level roles without a degree.</div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="ps-numcard">
+            <div class="ps-numcard__lbl">NetAcad · By the Numbers</div>
+            <div class="ps-numgrid">
+              <div class="ps-numbox"><div class="ps-numbox__val">190+</div><div class="ps-numbox__lbl">Countries</div></div>
+              <div class="ps-numbox"><div class="ps-numbox__val">15M+</div><div class="ps-numbox__lbl">Students</div></div>
+              <div class="ps-numbox"><div class="ps-numbox__val">30+</div><div class="ps-numbox__lbl">Years Running</div></div>
+              <div class="ps-numbox"><div class="ps-numbox__val">Free</div><div class="ps-numbox__lbl">Via Our Academy</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 · Pathways -->
+    <div class="pslide" data-title="The Three Pathways">
+      <div class="ps-eyebrow">The Tracks</div>
+      <h2 class="ps-h2">Choose Your <em>Pathway</em></h2>
+      <div class="ps-paths">
+        <div class="ps-path"><div class="ps-path__ico">💻</div><div class="ps-path__track">Pathway 01 · Foundation</div><div class="ps-path__title">IT Essentials</div><div class="ps-path__desc">Hardware, software, troubleshooting, and help desk skills. The starting point for every tech career.</div><div class="ps-path__pills"><span class="pill pill--comptia">CompTIA A+</span></div></div>
+        <div class="ps-path"><div class="ps-path__ico">🌐</div><div class="ps-path__track">Pathway 02 · Intermediate</div><div class="ps-path__title">Networking</div><div class="ps-path__desc">Routing, switching, protocols, cloud. How the internet works — and how to build and protect it.</div><div class="ps-path__pills"><span class="pill pill--cisco">Cisco CCNA</span><span class="pill pill--comptia">CompTIA Network+</span></div></div>
+        <div class="ps-path"><div class="ps-path__ico">🛡️</div><div class="ps-path__track">Pathway 03 · Advanced</div><div class="ps-path__title">Cybersecurity</div><div class="ps-path__desc">Threat detection, network defense, incident response. One of the fastest-growing fields on earth.</div><div class="ps-path__pills"><span class="pill pill--cisco">Cisco CyberOps</span><span class="pill pill--comptia">CompTIA Security+</span></div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 · The Goal -->
+    <div class="pslide" data-title="The Certification Journey">
+      <div class="ps-two">
+        <div>
+          <div class="ps-eyebrow">The Mission</div>
+          <h2 class="ps-h2">The <em>Certification</em> Journey</h2>
+          <div class="ps-journey">
+            <div class="ps-step"><div class="ps-step__node">1</div><div class="ps-step__body"><div class="ps-step__title">Enroll &amp; Explore</div><div class="ps-step__desc">No prior experience required. Join the pathway that fits.</div></div></div>
+            <div class="ps-step"><div class="ps-step__node">2</div><div class="ps-step__body"><div class="ps-step__title">Build Real Skills</div><div class="ps-step__desc">Hands-on labs, simulations, and real-world scenarios from Cisco's curriculum.</div></div></div>
+            <div class="ps-step"><div class="ps-step__node">3</div><div class="ps-step__body"><div class="ps-step__title">Become Cert-Ready</div><div class="ps-step__desc">Minimum guarantee: every student who completes a pathway is ready to sit for an exam.</div></div></div>
+            <div class="ps-step ps-step--goal"><div class="ps-step__node">🏅</div><div class="ps-step__body"><div class="ps-step__title">Earn Your Certification</div><div class="ps-step__desc">Graduate with at least one industry-recognized certification in hand.</div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="ps-callout">
+            <p class="ps-callout__text">Our minimum:<br>every student leaves<br><em>cert-ready.</em><br><br>Our real goal:<br>they graduate<br><em>certified.</em></p>
+            <p class="ps-callout__body">A certification is a verifiable signal — to employers, colleges, and the world — that a City School student did the work and has the skills to prove it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 · Who Qualifies -->
+    <div class="pslide" data-title="Who Can Join">
+      <div class="ps-eyebrow">Who Can Join</div>
+      <h2 class="ps-h2">Built for <em>City School</em> Students</h2>
+      <div class="ps-who">
+        <div class="ps-whocard ps-whocard--now">
+          <div class="ps-whocard__tag">Starting Now · 2026–2027</div>
+          <div class="ps-whocard__title">Seniors · Class of 2027</div>
+          <p class="ps-whocard__body">Launching at our Poplar Street campus (grades 6–12). If you're in the Class of 2027, you're first. Get certified before you graduate — and start your next chapter with a credential that opens real doors.</p>
+          <span class="ps-whocard__note">✅ Enrolling for next school year</span>
+        </div>
+        <div class="ps-whocard ps-whocard--later">
+          <div class="ps-whocard__tag">Future Expansion</div>
+          <div class="ps-whocard__title">Juniors &amp; Beyond</div>
+          <p class="ps-whocard__body">We're building toward opening pathways to juniors and younger students. The earlier you start, the more certifications you can stack. More details as the program grows.</p>
+          <span class="ps-whocard__note">🔜 Coming in future school years</span>
+        </div>
+      </div>
+      <div class="ps-chips">
+        <span class="cert-chip cert-chip--cisco"><span class="cert-chip__dot"></span>Cisco CCNA</span>
+        <span class="cert-chip cert-chip--cisco"><span class="cert-chip__dot"></span>Cisco CyberOps</span>
+        <span class="cert-chip cert-chip--comptia"><span class="cert-chip__dot"></span>CompTIA A+</span>
+        <span class="cert-chip cert-chip--comptia"><span class="cert-chip__dot"></span>CompTIA Network+</span>
+        <span class="cert-chip cert-chip--comptia"><span class="cert-chip__dot"></span>CompTIA Security+</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 6 · Next Steps -->
+    <div class="pslide" data-title="Next Steps">
+      <div class="ps-eyebrow">What Happens Now</div>
+      <h2 class="ps-h2">Next <em>Steps</em></h2>
+      <div class="ps-feats" style="max-width:680px;margin-top:28px">
+        <div class="ps-feat"><div class="ps-feat__icon">📋</div><div><div class="ps-feat__title">Enrollment opens for Class of 2027</div><div class="ps-feat__desc">Students at Poplar Street will receive details before the start of the 2026–2027 school year.</div></div></div>
+        <div class="ps-feat"><div class="ps-feat__icon">📬</div><div><div class="ps-feat__title">Families will be informed</div><div class="ps-feat__desc">Communication goes home with enrollment specifics, pathway options, and next steps. Questions? Contact Ashley Fornwalt, Academic Support Coordinator.</div></div></div>
+        <div class="ps-feat"><div class="ps-feat__icon">📈</div><div><div class="ps-feat__title">Program grows over time</div><div class="ps-feat__desc">Juniors and younger grades will be considered as the program matures. The goal: every City School student has a clear path into tech credentials.</div></div></div>
+        <div class="ps-feat"><div class="ps-feat__icon">🌐</div><div><div class="ps-feat__title">This page is the source of truth</div><div class="ps-feat__desc">Bookmark it. Share it. It will be updated as program details are confirmed throughout the year.</div></div></div>
+      </div>
+    </div>
+
+  </div><!-- /#pres-stage -->
+
+  <div id="pres-hint"><kbd>←</kbd><kbd>→</kbd> navigate &nbsp;·&nbsp; <kbd>Space</kbd> advance &nbsp;·&nbsp; <kbd>Esc</kbd> exit</div>
+
+  <div id="pres-controls">
+    <span id="pres-info">Slide 1 / 6</span>
+    <div id="pres-dots"></div>
+    <span id="pres-slide-name"></span>
+    <div class="pnav-btns">
+      <button class="pnav-btn" id="prevBtn" aria-label="Previous slide">‹</button>
+      <button class="pnav-btn" id="nextBtn" aria-label="Next slide">›</button>
+    </div>
+    <button class="pexit" id="exitPresBtn">✕ Exit</button>
+  </div>
+</div>
+
+<script>
+  /* NAV SCROLL */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('stuck', scrollY > 60), { passive: true });
+
+  /* FADE-UP */
+  const fObs = new IntersectionObserver(
+    es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); fObs.unobserve(e.target); } }),
+    { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => fObs.observe(el));
+
+  /* FAQ */
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item'), open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-btn').setAttribute('aria-expanded','false'); });
+      if (!open) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+
+  /* PRESENTATION */
+  const overlay  = document.getElementById('pres-overlay');
+  const slides   = [...document.querySelectorAll('.pslide')];
+  const progBar  = document.getElementById('pres-progress');
+  const infoEl   = document.getElementById('pres-info');
+  const nameEl   = document.getElementById('pres-slide-name');
+  const dotsEl   = document.getElementById('pres-dots');
+  const prevBtn  = document.getElementById('prevBtn');
+  const nextBtn  = document.getElementById('nextBtn');
+  const hintEl   = document.getElementById('pres-hint');
+  let cur = 0, inPres = false, hTimer = null;
+
+  /* build dots */
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'pdot' + (i === 0 ? ' on' : '');
+    d.setAttribute('aria-label', `Slide ${i + 1}`);
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  });
+  const dots = () => [...dotsEl.querySelectorAll('.pdot')];
+
+  function goTo(n) {
+    slides[cur].classList.remove('active');
+    dots()[cur].classList.remove('on');
+    cur = Math.max(0, Math.min(n, slides.length - 1));
+    slides[cur].classList.add('active');
+    dots()[cur].classList.add('on');
+    progBar.style.width = ((cur + 1) / slides.length * 100) + '%';
+    infoEl.textContent  = `Slide ${cur + 1} / ${slides.length}`;
+    nameEl.textContent  = slides[cur].dataset.title || '';
+    prevBtn.disabled = cur === 0;
+    nextBtn.disabled = cur === slides.length - 1;
+  }
+
+  function enter() {
+    inPres = true;
+    cur = 0; goTo(0);
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    hintEl.classList.remove('gone');
+    clearTimeout(hTimer);
+    hTimer = setTimeout(() => hintEl.classList.add('gone'), 4500);
+  }
+
+  function exit() {
+    inPres = false;
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    document.getElementById('enterPresBtn').focus();
+  }
+
+  document.getElementById('enterPresBtn').addEventListener('click', enter);
+  document.getElementById('exitPresBtn').addEventListener('click', exit);
+  prevBtn.addEventListener('click', () => goTo(cur - 1));
+  nextBtn.addEventListener('click', () => goTo(cur + 1));
+
+  document.addEventListener('keydown', e => {
+    if (!inPres) {
+      if (e.key === 'Escape') document.querySelectorAll('.faq-item.open').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-btn').setAttribute('aria-expanded','false'); });
+      return;
+    }
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(cur + 1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    { e.preventDefault(); goTo(cur - 1); }
+    if (e.key === 'Escape') exit();
+  });
+
+  /* Touch swipe */
+  let tx = 0;
+  overlay.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, { passive: true });
+  overlay.addEventListener('touchend',   e => {
+    if (!inPres) return;
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) { dx < 0 ? goTo(cur + 1) : goTo(cur - 1); }
+  }, { passive: true });
+</script>
+</body>
+</html>
