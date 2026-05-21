@@ -497,11 +497,59 @@
           linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
       }
     }
-</style>
+
+    /* UNIFIED NAVIGATION STYLES - SOLID & OPAQUE */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      background-color: #0a0f1c !important; /* Solid Dark */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 0;
+      width: 100%;
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo { font-size: 18px; font-weight: 800; color: #fff; text-transform: uppercase; text-decoration: none; }
+    .nav-logo span { color: #f0b429; margin-left: 4px; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #f0b429; }
+    
+    @media (prefers-color-scheme: light) {
+      .site-nav { background-color: #f8fafc !important; border-bottom: 1px solid rgba(15, 23, 42, 0.1); }
+      .nav-logo { color: #0f172a; }
+      .nav-links a { color: #475569; }
+      .nav-links a:hover { color: #d97706; }
+    }
+    
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+  </style>
 </head>
 <body>
   <div class="parallax-bg">
     <div class="parallax-layer layer-1"></div>
+
+  <!-- UNIFIED NAVIGATION -->
+  <nav class="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">NetAcad<span>Portal</span></a>
+      <div class="nav-links">
+        <a href="index.html">Dashboard</a>
+        <a href="netacad-landing.html">Program Page</a>
+        <a href="netacad-one-pager.html">One-Pager</a>
+        <a href="netacad-comms-portfolio.html">Portfolio</a>
+        <a href="parent-letter.html">Parent Letter</a>
+      </div>
+    </div>
+  </nav>
     <div class="parallax-layer layer-2"></div>
   </div>
 
