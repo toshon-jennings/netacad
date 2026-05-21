@@ -17,6 +17,7 @@
 
     /* ===== CSS VARIABLES ===== */
     :root {
+      /* Dark Mode (Default) */
       --color-bg-primary: #0a0f1c;
       --color-bg-secondary: #0f1623;
       --color-bg-tertiary: #141d2f;
@@ -28,6 +29,9 @@
       --color-accent-tertiary: #1ba0d7;
       --color-border: rgba(255, 255, 255, 0.08);
       --color-border-light: rgba(255, 255, 255, 0.04);
+      --card-bg-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+      --card-hover-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+      --link-bg: rgba(240, 180, 41, 0.08);
       
       --spacing-xs: 8px;
       --spacing-sm: 12px;
@@ -45,6 +49,26 @@
       --transition-slow: 0.3s ease;
     }
 
+    /* Light Mode Overrides */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --color-bg-primary: #f8fafc;
+        --color-bg-secondary: #f1f5f9;
+        --color-bg-tertiary: #e2e8f0;
+        --color-text-primary: #0f172a;
+        --color-text-secondary: #334155;
+        --color-text-muted: #64748b;
+        --color-accent-primary: #d97706;
+        --color-accent-secondary: #0284c7;
+        --color-accent-tertiary: #0369a1;
+        --color-border: rgba(15, 23, 42, 0.08);
+        --color-border-light: rgba(15, 23, 42, 0.04);
+        --card-bg-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+        --card-hover-bg: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%);
+        --link-bg: rgba(217, 119, 6, 0.08);
+      }
+    }
+
     /* ===== BASE ===== */
     body {
       background-color: var(--color-bg-primary);
@@ -56,6 +80,7 @@
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      transition: background-color var(--transition-base), color var(--transition-base);
     }
 
     a {
@@ -85,7 +110,7 @@
       letter-spacing: -0.5px;
       border-bottom: 3px solid var(--color-accent-primary);
       padding-bottom: var(--spacing-sm);
-      transition: transform var(--transition-base);
+      transition: transform var(--transition-base), color var(--transition-base);
     }
 
     .hero-wordmark:hover {
@@ -130,7 +155,7 @@
 
     /* ===== INDIVIDUAL CARD ===== */
     .card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+      background: var(--card-bg-gradient);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
       padding: var(--spacing-lg);
@@ -142,6 +167,12 @@
       --card-brand-lighter: rgba(240, 180, 41, 0.35);
       --card-brand-shadow: rgba(240, 180, 41, 0.08);
       overflow: hidden;
+    }
+
+    @media (prefers-color-scheme: light) {
+      .card {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
     }
 
     /* Brand left accent bar */
@@ -159,7 +190,7 @@
 
     .card:hover {
       border-color: var(--card-brand-lighter);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+      background: var(--card-hover-bg);
       box-shadow: 0 8px 24px var(--card-brand-shadow);
       transform: translateY(-4px);
     }
@@ -222,13 +253,13 @@
       margin-top: auto;
       padding: var(--spacing-sm) var(--spacing-md);
       border-radius: var(--radius-sm);
-      background: rgba(240, 180, 41, 0.08);
-      border: 1px solid rgba(240, 180, 41, 0.15);
+      background: var(--link-bg);
+      border: 1px solid var(--color-border-light);
     }
 
     .card-link:hover {
-      background: rgba(240, 180, 41, 0.15);
-      border-color: rgba(240, 180, 41, 0.3);
+      background: var(--card-brand-lighter);
+      border-color: var(--card-brand);
       transform: translateX(4px);
     }
 
@@ -268,13 +299,19 @@
     .contact-card {
       flex: 1;
       min-width: 200px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+      background: var(--card-bg-gradient);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
       padding: var(--spacing-lg);
       transition: all var(--transition-base);
       position: relative;
       overflow: hidden;
+    }
+
+    @media (prefers-color-scheme: light) {
+      .contact-card {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
     }
 
     .contact-card::before {
@@ -290,8 +327,8 @@
     }
 
     .contact-card:hover {
-      border-color: rgba(240, 180, 41, 0.35);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+      border-color: var(--color-accent-primary);
+      background: var(--card-hover-bg);
       box-shadow: 0 8px 24px rgba(240, 180, 41, 0.08);
       transform: translateY(-4px);
     }
@@ -325,13 +362,13 @@
       transition: all var(--transition-base);
       padding: var(--spacing-xs) var(--spacing-sm);
       border-radius: var(--radius-sm);
-      background: rgba(240, 180, 41, 0.08);
-      border: 1px solid rgba(240, 180, 41, 0.15);
+      background: var(--link-bg);
+      border: 1px solid var(--color-border-light);
     }
 
     .contact-email:hover {
-      background: rgba(240, 180, 41, 0.15);
-      border-color: rgba(240, 180, 41, 0.3);
+      background: var(--color-accent-primary);
+      color: #ffffff;
       transform: translateX(2px);
     }
 
@@ -525,7 +562,7 @@
         <div class="contact-card">
           <div class="contact-name">Krista Wieder</div>
           <div class="contact-title">Head of Schools</div>
-          <a class="contact-email" href="mailto:kwieder@cityschool.org">
+          <a class="contact-email" href="mailto:kwieder@cityschool.org" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Email
           </a>
@@ -534,7 +571,7 @@
         <div class="contact-card">
           <div class="contact-name">John Deaton</div>
           <div class="contact-title">Middle / High School Principal</div>
-          <a class="contact-email" href="mailto:jdeaton@cityschool.org">
+          <a class="contact-email" href="mailto:jdeaton@cityschool.org" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Email
           </a>
@@ -543,7 +580,7 @@
         <div class="contact-card">
           <div class="contact-name">Toshon Jennings</div>
           <div class="contact-title">IT Coordinator</div>
-          <a class="contact-email" href="mailto:tjennings@cityschool.org">
+          <a class="contact-email" href="mailto:tjennings@cityschool.org" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Email
           </a>
@@ -552,7 +589,7 @@
         <div class="contact-card">
           <div class="contact-name">Ashley Fornwalt</div>
           <div class="contact-title">Academic Coordinator</div>
-          <a class="contact-email" href="mailto:afornwalt@cityschool.org">
+          <a class="contact-email" href="mailto:afornwalt@cityschool.org" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Email
           </a>

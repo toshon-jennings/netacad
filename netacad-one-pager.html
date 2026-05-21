@@ -737,6 +737,27 @@ body.print-preview      .op-footer__logo { color: #7a9ab8; }
   .op-footer__logo { color: #7a9ab8 !important; }
   .op-top-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+    @media (prefers-color-scheme: light) {
+      body:not(.print-preview) {
+        background: #f8fafc;
+      }
+      body:not(.print-preview) .one-pager {
+        background: #ffffff;
+        color: #0f172a;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      }
+      body:not(.print-preview) .op-headline { color: #0f172a; }
+      body:not(.print-preview) .op-tagline { color: #475569; }
+      body:not(.print-preview) .op-stats { background: #f1f5f9; border-color: rgba(15, 23, 42, 0.1); }
+      body:not(.print-preview) .op-stat__val { color: #0f172a; }
+      body:not(.print-preview) .op-stat__lbl { color: #64748b; }
+      body:not(.print-preview) .op-path { background: #f8fafc; border-color: rgba(15, 23, 42, 0.1); }
+      body:not(.print-preview) .op-path__name { color: #0f172a; }
+      body:not(.print-preview) .op-path__desc { color: #475569; }
+      body:not(.print-preview) .toolbar { background: rgba(248, 250, 252, 0.95); border-color: rgba(15, 23, 42, 0.1); }
+      body:not(.print-preview) .toolbar__title { color: #0f172a; }
+    }
 </style>
 </head>
 <body>

@@ -288,6 +288,30 @@
     .letter-head { padding: 20px; }
     .sec-hd { flex-direction: column; }
   }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --c-bg:      #f8fafc;
+        --c-surface: #f1f5f9;
+        --c-card:    #ffffff;
+        --c-text:    #0f172a;
+        --c-muted:   #475569;
+        --c-subtle:  #94a3b8;
+        --c-white:   #0f172a;
+        --c-border:  rgba(15, 23, 42, 0.1);
+        --c-cisco:   #0284c7;
+        --c-cyan:    #0ea5e9;
+      }
+      .subject-block {
+        background: #f1f5f9;
+      }
+      .doc-footer {
+        background: #f8fafc;
+      }
+      .doc-card {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+    }
 </style>
 </head>
 <body>

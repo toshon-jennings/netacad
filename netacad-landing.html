@@ -334,6 +334,45 @@
       .footer__grid{grid-template-columns:1fr}
       .footer__btm{flex-direction:column;text-align:center}
     }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --c-bg-deep:     #f8fafc;
+        --c-bg:          #f1f5f9;
+        --c-bg-raised:   #e2e8f0;
+        --c-bg-card:     #ffffff;
+        --c-text:        #0f172a;
+        --c-muted:       #475569;
+        --c-subtle:      #94a3b8;
+        --c-white:       #0f172a;
+        --c-border:      rgba(15, 23, 42, 0.08);
+        --c-border-light: rgba(15, 23, 42, 0.04);
+        --c-cisco:       #0284c7;
+        --c-cyan:        #0ea5e9;
+        --c-gold:        #d97706;
+      }
+      .hero::before {
+        background-image: linear-gradient(rgba(14, 165, 233, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, .05) 1px, transparent 1px);
+      }
+      .nav.stuck {
+        background: rgba(248, 250, 252, 0.92);
+      }
+      .faq-btn:hover {
+        background: rgba(14, 165, 233, 0.08);
+      }
+      .path-card, .who-card, .stats-card {
+        background: #ffffff;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      .path-card:hover, .who-card:hover {
+        background: #f8fafc;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .stat-box {
+        background: #f1f5f9;
+        border-color: rgba(15, 23, 42, 0.05);
+      }
+    }
   </style>
 </head>
 <body>
