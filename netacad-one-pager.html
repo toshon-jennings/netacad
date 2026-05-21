@@ -81,11 +81,12 @@ body {
   border-color: rgba(0,216,255,.4);
 }
 .tbtn--print {
-  background: #f5a623;
+  background: linear-gradient(135deg, #f5a623 0%, #f59623 100%);
   border-color: #f5a623;
   color: #07111c;
+  transition: all var(--transition-base);
 }
-.tbtn--print:hover { background: #ffc04d; border-color: #ffc04d; }
+.tbtn--print:hover { background: linear-gradient(135deg, #ffc04d 0%, #ffb04d 100%); border-color: #ffc04d; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(245,166,35,.2); }
 .tbtn svg { width: 12px; height: 12px; flex-shrink: 0; }
 
 /* page wrapper — screen */
@@ -316,8 +317,13 @@ body.print-preview      .op-about strong { color: #1a2633; }
   overflow: hidden;
 }
 body:not(.print-preview) .op-path {
-  background: rgba(0,0,0,.22);
-  border-color: rgba(255,255,255,.07);
+  background: linear-gradient(135deg, rgba(0,216,255,.08) 0%, rgba(0,216,255,.02) 100%);
+  border-color: rgba(0,216,255,.15);
+}
+body:not(.print-preview) .op-path:hover {
+  background: linear-gradient(135deg, rgba(0,216,255,.14) 0%, rgba(0,216,255,.06) 100%);
+  border-color: rgba(0,216,255,.25);
+  box-shadow: 0 8px 24px rgba(0,216,255,.1);
 }
 body.print-preview .op-path {
   background: #f5f8fa;

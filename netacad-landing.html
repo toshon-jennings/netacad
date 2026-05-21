@@ -33,6 +33,9 @@
       --f-mono:    'JetBrains Mono', monospace;
       --max-w: 1200px; --pad-x: clamp(20px,5vw,48px);
       --sec-y: clamp(72px,10vw,120px); --radius: 12px;
+      --transition-fast: 0.15s ease;
+      --transition-base: 0.2s ease;
+      --transition-slow: 0.3s ease;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -87,8 +90,8 @@
     .hero__title .gold{color:var(--c-gold)}
     .hero__body{font-size:clamp(15px,1.6vw,18px);color:var(--c-muted);max-width:520px;line-height:1.78;margin-bottom:40px;animation:fadeUp .8s ease .18s both}
     .hero__actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:64px;animation:fadeUp .8s ease .26s both}
-    .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--c-cisco);color:var(--c-white);padding:15px 30px;border-radius:5px;font-size:14px;font-weight:600;letter-spacing:.03em;transition:background .2s,transform .15s,box-shadow .2s}
-    .btn-primary:hover{background:var(--c-cyan);color:var(--c-bg);transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,216,255,.25)}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--c-cisco) 0%,#1275a0 100%);color:var(--c-white);padding:15px 30px;border-radius:6px;font-size:14px;font-weight:600;letter-spacing:.03em;transition:all .2s;border:1px solid rgba(0,216,255,.2)}
+    .btn-primary:hover{background:linear-gradient(135deg,var(--c-cyan) 0%,#00b8e6 100%);color:var(--c-bg);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,216,255,.3);border-color:rgba(0,216,255,.4)}
     .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--c-muted);font-size:14px;font-weight:500;transition:color .2s}
     .btn-ghost:hover{color:var(--c-white)}
     .hero__stats{display:flex;gap:48px;flex-wrap:wrap;padding-top:40px;border-top:1px solid var(--c-border);animation:fadeUp .8s ease .36s both}
@@ -113,8 +116,8 @@
     .feature__icon{width:40px;height:40px;border-radius:10px;background:var(--c-cyan-dim);border:1px solid var(--c-cyan-border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
     .feature__title{font-size:15px;font-weight:600;color:var(--c-white);margin-bottom:3px}
     .feature__desc{font-size:13.5px;color:var(--c-muted);line-height:1.65}
-    .stats-card{background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden}
-    .stats-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c-cisco),var(--c-cyan))}
+    .stats-card{background:linear-gradient(135deg,rgba(22,45,68,.5) 0%,rgba(22,45,68,.2) 100%);border:1px solid var(--c-border);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden;transition:all .3s ease}
+    .stats-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--c-cisco),var(--c-cyan),var(--c-gold))}
     .stats-card__label{font-family:var(--f-mono);font-size:10px;color:var(--c-cyan);text-transform:uppercase;letter-spacing:.14em;margin-bottom:20px}
     .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .stat-box{background:rgba(0,0,0,.18);border-radius:8px;padding:18px 14px;text-align:center}
@@ -125,8 +128,8 @@
     .pathways-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:52px;flex-wrap:wrap}
     .pathways-hd__note{max-width:340px;font-size:14.5px;color:var(--c-muted);line-height:1.7}
     .paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .path-card{background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:var(--radius);padding:36px 30px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease,border-color .3s ease}
-    .path-card:hover{transform:translateY(-6px);border-color:rgba(0,216,255,.2)}
+    .path-card{background:linear-gradient(135deg,rgba(22,45,68,.6) 0%,rgba(22,45,68,.3) 100%);border:1px solid var(--c-border);border-radius:var(--radius);padding:36px 30px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease,border-color .3s ease,background .3s ease,box-shadow .3s ease}
+    .path-card:hover{transform:translateY(-8px);border-color:rgba(0,216,255,.3);background:linear-gradient(135deg,rgba(22,45,68,.8) 0%,rgba(22,45,68,.5) 100%);box-shadow:0 16px 48px rgba(0,216,255,.12)}
     .path-card__num{position:absolute;top:12px;right:18px;font-family:var(--f-display);font-size:88px;font-weight:900;color:rgba(255,255,255,.03);line-height:1;pointer-events:none}
     .path-card__icon{width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px}
     .icon--it{background:rgba(245,166,35,.12)}.icon--net{background:rgba(27,160,215,.12)}.icon--cyber{background:var(--c-green-dim)}
@@ -164,8 +167,8 @@
 
     /* WHO */
     .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
-    .who-card{padding:36px 32px;border-radius:var(--radius);border:1px solid var(--c-border);background:var(--c-bg-card);transition:border-color .3s,transform .3s}
-    .who-card:hover{border-color:var(--c-cyan-border);transform:translateY(-4px)}
+    .who-card{padding:36px 32px;border-radius:var(--radius);border:1px solid var(--c-border);background:linear-gradient(135deg,rgba(22,45,68,.5) 0%,rgba(22,45,68,.2) 100%);transition:border-color .3s,transform .3s,background .3s,box-shadow .3s}
+    .who-card:hover{border-color:var(--c-cyan-border);transform:translateY(-6px);background:linear-gradient(135deg,rgba(22,45,68,.7) 0%,rgba(22,45,68,.4) 100%);box-shadow:0 12px 36px rgba(0,216,255,.08)}
     .who-card--now{border-color:var(--c-cyan-border);background:linear-gradient(145deg,var(--c-bg-card),rgba(27,160,215,.05))}
     .who-card__tag{font-family:var(--f-mono);font-size:9.5px;color:var(--c-cyan);text-transform:uppercase;letter-spacing:.16em;margin-bottom:8px}
     .who-card--later .who-card__tag{color:var(--c-subtle)}
