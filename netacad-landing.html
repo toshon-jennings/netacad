@@ -50,7 +50,7 @@
 
     .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c-cyan);margin-bottom:18px}
     .eyebrow::before{content:'';width:22px;height:1px;background:var(--c-cyan);flex-shrink:0}
-    .sec-title{font-family:var(--f-display);font-size:clamp(40px,6vw,70px);font-weight:900;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:var(--c-white);margin-bottom:22px}
+    .sec-title{font-family:var(--f-display);font-size:clamp(38px,5.5vw,60px);font-weight:900;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:var(--c-white);margin-bottom:22px}
     .sec-title em{font-style:normal;color:var(--c-cyan)}
     .sec-lead{font-size:clamp(15px,1.6vw,18px);color:var(--c-muted);line-height:1.75;max-width:580px}
 
@@ -61,22 +61,7 @@
     .fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
     .fade-up.in{opacity:1;transform:none}
 
-    /* NAV */
-    .nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 0;transition:padding .3s,background .3s,border-color .3s;border-bottom:1px solid transparent}
-    .nav.stuck{background:rgba(7,17,28,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:14px 0;border-bottom-color:var(--c-border)}
-    .nav__row{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .nav__brand{display:flex;flex-direction:column;gap:1px}
-    .nav__brand-primary{font-family:var(--f-display);font-size:19px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--c-white);line-height:1}
-    .nav__brand-sub{font-family:var(--f-mono);font-size:9.5px;color:var(--c-cyan);letter-spacing:.14em;text-transform:uppercase}
-    .nav__links{display:flex;align-items:center;gap:28px;list-style:none}
-    .nav__links a{font-size:12px;font-weight:500;color:var(--c-muted);letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
-    .nav__links a:hover{color:var(--c-white)}
-    .nav__right{display:flex;align-items:center;gap:10px;flex-shrink:0}
-    .btn-present{display:inline-flex;align-items:center;gap:8px;background:var(--c-gold);color:var(--c-bg-deep);padding:9px 18px;border-radius:4px;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:background .2s,transform .15s,box-shadow .2s;white-space:nowrap}
-    .btn-present:hover{background:#ffc04d;transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,166,35,.3)}
-    .btn-present svg{width:13px;height:13px;flex-shrink:0}
-    .nav__btn{background:var(--c-cisco);color:var(--c-white);padding:9px 20px;border-radius:4px;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:background .2s,transform .15s;white-space:nowrap;display:inline-block}
-    .nav__btn:hover{background:var(--c-cyan);color:var(--c-bg);transform:translateY(-1px)}
+    /* NAV — removed (replaced by .site-nav) */
 
     /* HERO */
     .hero{position:relative;min-height:100svh;display:flex;align-items:center;background:var(--c-bg-deep);overflow:hidden;padding-top:80px}
@@ -85,7 +70,8 @@
     .hero__content{position:relative;z-index:2;padding:60px 0}
     .hero__badge{display:inline-flex;align-items:center;gap:10px;background:rgba(0,216,255,.08);border:1px solid var(--c-cyan-border);border-radius:100px;padding:7px 16px;font-family:var(--f-mono);font-size:10.5px;color:var(--c-cyan);letter-spacing:.12em;text-transform:uppercase;margin-bottom:30px;animation:fadeUp .8s ease both}
     .hero__badge-dot{width:7px;height:7px;border-radius:50%;background:var(--c-cyan);animation:dot-blink 2.2s ease-in-out infinite}
-    .hero__title{font-family:var(--f-display);font-size:clamp(62px,10vw,130px);font-weight:900;line-height:.9;letter-spacing:-.015em;text-transform:uppercase;color:var(--c-white);margin-bottom:34px;animation:fadeUp .8s ease .08s both}
+    /* hero title — still bold but not overwhelming */
+    .hero__title{font-family:var(--f-display);font-size:clamp(52px,8vw,110px);font-weight:900;line-height:.9;letter-spacing:-.015em;text-transform:uppercase;color:var(--c-white);margin-bottom:34px;animation:fadeUp .8s ease .08s both}
     .hero__title .stroke{color:transparent;-webkit-text-stroke:2px var(--c-cyan)}
     .hero__title .gold{color:var(--c-gold)}
     .hero__body{font-size:clamp(15px,1.6vw,18px);color:var(--c-muted);max-width:520px;line-height:1.78;margin-bottom:40px;animation:fadeUp .8s ease .18s both}
@@ -121,7 +107,7 @@
     .stats-card__label{font-family:var(--f-mono);font-size:10px;color:var(--c-cyan);text-transform:uppercase;letter-spacing:.14em;margin-bottom:20px}
     .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .stat-box{background:rgba(0,0,0,.18);border-radius:8px;padding:18px 14px;text-align:center}
-    .stat-box__val{font-family:var(--f-display);font-size:36px;font-weight:900;color:var(--c-cyan);line-height:1}
+    .stat-box__val{font-family:var(--f-display);font-size:30px;font-weight:900;color:var(--c-cyan);line-height:1}
     .stat-box__lbl{font-size:11px;color:var(--c-muted);margin-top:5px}
 
     /* PATHWAYS */
@@ -134,7 +120,8 @@
     .path-card__icon{width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px}
     .icon--it{background:rgba(245,166,35,.12)}.icon--net{background:rgba(27,160,215,.12)}.icon--cyber{background:var(--c-green-dim)}
     .path-card__track{font-family:var(--f-mono);font-size:9.5px;color:var(--c-subtle);text-transform:uppercase;letter-spacing:.16em;margin-bottom:7px}
-    .path-card__title{font-family:var(--f-display);font-size:30px;font-weight:900;color:var(--c-white);text-transform:uppercase;line-height:1.05;margin-bottom:14px}
+    /* path card title */
+    .path-card__title{font-family:var(--f-display);font-size:26px;font-weight:900;color:var(--c-white);text-transform:uppercase;line-height:1.05;margin-bottom:14px}
     .path-card__body{font-size:13.5px;color:var(--c-muted);line-height:1.72;margin-bottom:22px;flex:1}
     .skill-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
     .skill-tag{padding:4px 10px;border-radius:4px;background:rgba(255,255,255,.045);border:1px solid var(--c-border);font-size:11px;color:var(--c-muted);font-weight:500}
@@ -161,7 +148,7 @@
     .journey-step__desc{font-size:13.5px;color:var(--c-muted);line-height:1.68}
     .goal-callout{background:linear-gradient(145deg,var(--c-bg-card),rgba(27,160,215,.05));border:1px solid var(--c-cyan-border);border-radius:16px;padding:clamp(32px,4vw,52px) clamp(28px,4vw,44px);position:relative;overflow:hidden}
     .goal-callout::before{content:'"';position:absolute;top:-30px;right:20px;font-family:var(--f-display);font-size:220px;font-weight:900;color:rgba(0,216,255,.04);line-height:1;pointer-events:none}
-    .goal-callout__text{font-family:var(--f-display);font-size:clamp(24px,2.8vw,32px);font-weight:800;color:var(--c-white);text-transform:uppercase;line-height:1.28;margin-bottom:22px}
+    .goal-callout__text{font-family:var(--f-display);font-size:clamp(22px,2.4vw,28px);font-weight:800;color:var(--c-white);text-transform:uppercase;line-height:1.28;margin-bottom:22px}
     .goal-callout__text em{font-style:normal;color:var(--c-cyan)}
     .goal-callout__body{font-size:14.5px;color:var(--c-muted);line-height:1.75}
 
@@ -454,17 +441,21 @@
       justify-content: space-between;
       align-items: center;
     }
-    .nav-logo { font-size: 18px; font-weight: 800; color: #fff; text-transform: uppercase; text-decoration: none; }
-    .nav-logo span { color: #f0b429; margin-left: 4px; }
-    .nav-links { display: flex; gap: 20px; }
-    .nav-links a { font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: #f0b429; }
+    .nav-logo { font-family: var(--f-display); font-size: 20px; font-weight: 900; color: #fff; text-transform: uppercase; text-decoration: none; letter-spacing: .04em; }
+    .nav-logo span { color: var(--c-gold); margin-left: 4px; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a { font-family: var(--f-mono); font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; text-decoration: none; transition: color 0.2s; letter-spacing: .12em; }
+    .nav-links a:hover { color: var(--c-cyan); }
+    .btn-present { display: inline-flex; align-items: center; gap: 8px; background: var(--c-gold); color: var(--c-bg-deep); padding: 8px 16px; border-radius: 4px; font-family: var(--f-mono); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; transition: background .2s, transform .15s, box-shadow .2s; white-space: nowrap; border: none; cursor: pointer; }
+    .btn-present:hover { background: #ffc04d; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,166,35,.3); }
+    .btn-present svg { width: 13px; height: 13px; flex-shrink: 0; }
     
     @media (prefers-color-scheme: light) {
       .site-nav { background-color: #f8fafc !important; border-bottom: 1px solid rgba(15, 23, 42, 0.1); }
       .nav-logo { color: #0f172a; }
       .nav-links a { color: #475569; }
-      .nav-links a:hover { color: #d97706; }
+      .nav-links a:hover { color: #0284c7; }
+      .btn-present { background: #d97706; color: #fff; }
     }
     
     @media (max-width: 768px) { .nav-links { display: none; } }
@@ -474,50 +465,30 @@
 <body>
   <div class="parallax-bg">
     <div class="parallax-layer layer-1"></div>
-
-  <!-- UNIFIED NAVIGATION -->
-  <nav class="site-nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">NetAcad<span>Portal</span></a>
-      <div class="nav-links">
-        <a href="index.html">Dashboard</a>
-        <a href="netacad-landing.html">Program Page</a>
-        <a href="netacad-one-pager.html">One-Pager</a>
-        <a href="netacad-comms-portfolio.html">Portfolio</a>
-        <a href="parent-letter.html">Parent Letter</a>
-      </div>
-    </div>
-  </nav>
     <div class="parallax-layer layer-2"></div>
     <div class="parallax-layer layer-3"></div>
   </div>
 
-
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="wrap">
-    <div class="nav__row">
-      <a href="#top" class="nav__brand">
-        <span class="nav__brand-primary">The City School</span>
-        <span class="nav__brand-sub">× Cisco Networking Academy</span>
-      </a>
-      <ul class="nav__links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#pathways">Pathways</a></li>
-        <li><a href="#goal">The Goal</a></li>
-        <li><a href="#eligibility">Who Qualifies</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-      <div class="nav__right">
-        <button class="btn-present" id="enterPresBtn">
-          <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 10v2m4-2v2M3 12h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-          Present
-        </button>
-        <a href="#pathways" class="nav__btn">Explore →</a>
+  <!-- UNIFIED NAVIGATION -->
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">NetAcad<span>Portal</span></a>
+      <div class="nav-links">
+        <a href="index.html">Dashboard</a>
+        <a href="#about">About</a>
+        <a href="#pathways">Pathways</a>
+        <a href="#goal">The Goal</a>
+        <a href="#eligibility">Who Qualifies</a>
+        <a href="#faq">FAQ</a>
       </div>
+      <button class="btn-present" id="enterPresBtn" style="margin-left:8px">
+        <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 10v2m4-2v2M3 12h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Present
+      </button>
     </div>
-  </div>
-</nav>
+  </nav>
+
+
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -858,9 +829,8 @@
 </div>
 
 <script>
-  /* NAV SCROLL */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('stuck', scrollY > 60), { passive: true });
+  /* NAV — site-nav is sticky via CSS, no JS needed */
+
 
   /* FADE-UP */
   const fObs = new IntersectionObserver(
