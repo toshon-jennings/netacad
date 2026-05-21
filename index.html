@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The City School x Cisco NetAcad — Student Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== BASE ===== */
+    body {
+      background-color: #0a0f1c;
+      color: #C8D0E0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      font-feature-settings: "cv01", "ss03";
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HEADER / HERO ===== */
+    .hero {
+      padding: 48px 0 36px;
+      position: relative;
+    }
+
+    .hero-wordmark {
+      display: inline-block;
+      font-size: 28px;
+      font-weight: 600;
+      color: #F7F8F8;
+      letter-spacing: -0.5px;
+      border-bottom: 3px solid #F0B429;
+      padding-bottom: 6px;
+    }
+
+    .hero-wordmark .accent {
+      color: #F0B429;
+      font-weight: 500;
+    }
+
+    .hero-tagline {
+      margin-top: 16px;
+      font-size: 15px;
+      color: #7A8499;
+      font-weight: 400;
+    }
+
+    /* ===== SECTION LABELS ===== */
+    .section-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #F0B429;
+      margin-bottom: 16px;
+    }
+
+    section {
+      margin-top: 44px;
+    }
+
+    /* ===== CARD GRID — TOOLS (3 columns) ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* ===== INDIVIDUAL CARD ===== */
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 24px;
+      position: relative;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Gold left accent bar */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: #F0B429;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .card:hover {
+      border-color: rgba(240,180,41,0.35);
+      background: rgba(255,255,255,0.055);
+      box-shadow: 0 0 18px rgba(240,180,41,0.08);
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #1B3A6B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-bottom: 14px;
+    }
+
+    .card-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #F0B429;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #F7F8F8;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: #7A8499;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #F0B429;
+      align-self: flex-end;
+      transition: color 0.2s ease;
+      margin-top: auto;
+    }
+
+    .card-link:hover {
+      color: #F5C84A;
+    }
+
+    .card-link svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* ===== LEARNING RESOURCES — single card ===== */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-card {
+      flex: 1;
+      min-width: 200px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 20px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: #F0B429;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(240,180,41,0.35);
+      background: rgba(255,255,255,0.055);
+      box-shadow: 0 0 18px rgba(240,180,41,0.08);
+    }
+
+    .contact-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #F7F8F8;
+      margin-bottom: 2px;
+    }
+
+    .contact-title {
+      font-size: 12px;
+      color: #7A8499;
+      margin-bottom: 12px;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #F0B429;
+      transition: color 0.2s ease;
+    }
+
+    .contact-email:hover {
+      color: #F5C84A;
+    }
+
+    .contact-email svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      margin-top: 60px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(240,180,41,0.25);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #7A8499;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-wordmark {
+        font-size: 22px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      section {
+        margin-top: 32px;
+      }
+
+      .contact-card {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+      <div class="hero-wordmark">
+        The City School <span class="accent">x</span> Cisco NetAcad
+      </div>
+      <p class="hero-tagline">Your launchpad for tech. Philadelphia's first cohort.</p>
+    </header>
+
+    <!-- ===== LEARNING RESOURCES ===== -->
+    <section>
+      <span class="section-label">Learning Resources</span>
+      <div class="resources-grid">
+        <a href="https://www.netacad.com" target="_blank" rel="noopener noreferrer" class="card">
+          <div class="card-icon">
+            <!-- Network globe icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <div class="card-title">Cisco NetAcad</div>
+          <div class="card-desc">Your core curriculum. Log in to access courses, labs, and certifications.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== AI & DEVELOPER TOOLS ===== -->
+    <section>
+      <span class="section-label">Tools</span>
+      <div class="card-grid">
+
+        <!-- Claude -->
+        <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
+          </div>
+          <div class="card-title">Claude / Claude Code</div>
+          <div class="card-desc">Anthropic's AI — chat, code, and problem-solve.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- ChatGPT / Codex -->
+        <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <div class="card-title">ChatGPT / Codex</div>
+          <div class="card-desc">OpenAI's AI assistant and code generation.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- Gemini -->
+        <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="card-title">Gemini</div>
+          <div class="card-desc">Google's multimodal AI — research, writing, coding.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- Jules -->
+        <a href="https://jules.google.com" target="_blank" rel="noopener noreferrer" class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          </div>
+          <div class="card-title">Jules</div>
+          <div class="card-desc">Google's autonomous coding agent.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- StudioOS -->
+        <a href="https://studioos.dev" target="_blank" rel="noopener noreferrer" class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
+          </div>
+          <div class="card-title">StudioOS</div>
+          <div class="card-desc">Your productivity OS — organize, build, and ship.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section>
+      <span class="section-label">Contact</span>
+      <div class="contact-row">
+
+        <div class="contact-card">
+          <div class="contact-name">Krista Wieder</div>
+          <div class="contact-title">Head of Schools</div>
+          <a class="contact-email" href="mailto:kwieder@cityschool.org">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-name">John Deaton</div>
+          <div class="contact-title">Middle / High School Principal</div>
+          <a class="contact-email" href="mailto:jdeaton@cityschool.org">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-name">Toshon Jennings</div>
+          <div class="contact-title">IT Coordinator</div>
+          <a class="contact-email" href="mailto:tjennings@cityschool.org">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-name">Ashley Fornwalt</div>
+          <div class="contact-title">Academic Coordinator</div>
+          <a class="contact-email" href="mailto:afornwalt@cityschool.org">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <p>The City School x Cisco NetAcad — Philadelphia, PA</p>
+    </footer>
+
+  </div>
+</body>
+</html>
