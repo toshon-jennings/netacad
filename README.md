@@ -1,6 +1,6 @@
 # The City School x Cisco NetAcad — Student Tech Dashboard
 
-A single-page student dashboard serving as the central launchpad for The City School's first Cisco NetAcad cohort in Philadelphia, PA.
+A single-page student dashboard serving as the central launchpad for The City School's Cisco NetAcad cohort.
 
 ## What's Inside
 
