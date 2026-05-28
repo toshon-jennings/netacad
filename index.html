@@ -458,14 +458,12 @@
 
     /* ===== CONTACT SECTION ===== */
     .contact-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: var(--spacing-md);
-      flex-wrap: wrap;
     }
 
     .contact-card {
-      flex: 1;
-      min-width: 200px;
       background: var(--card-bg-gradient);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
@@ -583,12 +581,8 @@
         margin-top: var(--spacing-xl);
       }
 
-      .contact-card {
-        min-width: 100%;
-      }
-
       .contact-row {
-        flex-direction: column;
+        grid-template-columns: 1fr;
       }
     }
 
