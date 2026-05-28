@@ -185,7 +185,33 @@
       margin-top: var(--spacing-2xl);
     }
 
-    /* ===== CARD GRID — TOOLS (3 columns) ===== */
+    .category-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--f-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .category-label::before {
+      content: '';
+      width: 14px;
+      height: 1px;
+      background: var(--color-border);
+      flex-shrink: 0;
+    }
+
+    .category-label:first-of-type {
+      margin-top: var(--spacing-lg);
+    }
+
+    /* ===== CARD GRID ===== */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -321,7 +347,10 @@
     .card[data-brand="chatgpt"]     { --card-brand: #10a37f; --card-brand-lighter: rgba(16, 163, 127, 0.35); --card-brand-shadow: rgba(16, 163, 127, 0.10); }
     .card[data-brand="gemini"]      { --card-brand: #4285f4; --card-brand-lighter: rgba(66, 133, 244, 0.35); --card-brand-shadow: rgba(66, 133, 244, 0.10); }
     .card[data-brand="jules"]       { --card-brand: #1a73e8; --card-brand-lighter: rgba(26, 115, 232, 0.35); --card-brand-shadow: rgba(26, 115, 232, 0.10); }
-    .card[data-brand="studioos"]    { --card-brand: #059669; --card-brand-lighter: rgba(5, 150, 105, 0.35); --card-brand-shadow: rgba(5, 150, 105, 0.10); }
+    .card[data-brand="studioos"]     { --card-brand: #059669; --card-brand-lighter: rgba(5, 150, 105, 0.35); --card-brand-shadow: rgba(5, 150, 105, 0.10); }
+    .card[data-brand="github"]       { --card-brand: #6e5494; --card-brand-lighter: rgba(110, 84, 148, 0.35); --card-brand-shadow: rgba(110, 84, 148, 0.10); }
+    .card[data-brand="zero2claude"]  { --card-brand: #f59e0b; --card-brand-lighter: rgba(245, 158, 11, 0.35); --card-brand-shadow: rgba(245, 158, 11, 0.10); }
+    .card[data-brand="notebooklm"]   { --card-brand: #4b7bec; --card-brand-lighter: rgba(75, 123, 236, 0.35); --card-brand-shadow: rgba(75, 123, 236, 0.10); }
 
     /* ===== LEARNING RESOURCES — single card ===== */
     .resources-grid {
@@ -629,6 +658,9 @@
     <!-- ===== AI & DEVELOPER TOOLS ===== -->
     <section>
       <span class="section-label">Tools</span>
+
+      <!-- AI Chat & Assistants -->
+      <div class="category-label">AI Chat &amp; Assistants</div>
       <div class="card-grid">
 
         <!-- Claude -->
@@ -670,6 +702,12 @@
           </span>
         </a>
 
+      </div>
+
+      <!-- AI Coding & Automation -->
+      <div class="category-label">AI Coding &amp; Automation</div>
+      <div class="card-grid">
+
         <!-- Jules -->
         <a href="https://jules.google.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="jules">
           <div class="card-icon">
@@ -690,6 +728,51 @@
           </div>
           <div class="card-title">StudioOS</div>
           <div class="card-desc">Your productivity OS — organize, build, and ship.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+      </div>
+
+      <!-- Dev Platforms & Resources -->
+      <div class="category-label">Dev Platforms &amp; Resources</div>
+      <div class="card-grid">
+
+        <!-- GitHub -->
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="github">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </div>
+          <div class="card-title">GitHub</div>
+          <div class="card-desc">Code hosting, collaboration, and version control. Your dev portfolio starts here.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- zero2claude.dev -->
+        <a href="https://zero2claude.dev" target="_blank" rel="noopener noreferrer" class="card" data-brand="zero2claude">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+          </div>
+          <div class="card-title">zero2claude.dev</div>
+          <div class="card-desc">A curated path from zero to Claude — tutorials, prompts, and practical AI skills.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- NotebookLM -->
+        <a href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="notebooklm">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+          </div>
+          <div class="card-title">NotebookLM</div>
+          <div class="card-desc">Google's AI research assistant — upload docs, get summaries, ask questions.</div>
           <span class="card-link">
             Open
             <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
