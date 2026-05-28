@@ -185,6 +185,14 @@
       margin-top: var(--spacing-2xl);
     }
 
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin-top: -16px;
+      margin-bottom: var(--spacing-lg);
+      line-height: 1.5;
+    }
+
     .category-label {
       display: flex;
       align-items: center;
@@ -304,8 +312,24 @@
       font-weight: 400;
       color: var(--color-text-muted);
       line-height: 1.6;
-      margin-bottom: var(--spacing-md);
+      margin-bottom: var(--spacing-sm);
       flex: 1;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-family: var(--f-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--card-brand);
+      background: var(--link-bg);
+      border: 1px solid var(--color-border-light);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--spacing-md);
+      align-self: flex-start;
     }
 
     .card-link {
@@ -342,15 +366,25 @@
     }
 
     /* ===== PER-BRAND CARD VARIABLES ===== */
-    .card[data-brand="cisco"]       { --card-brand: #003366; --card-brand-lighter: rgba(0, 51, 102, 0.35); --card-brand-shadow: rgba(0, 51, 102, 0.12); }
-    .card[data-brand="claude"]      { --card-brand: #d97757; --card-brand-lighter: rgba(217, 119, 87, 0.35); --card-brand-shadow: rgba(217, 119, 87, 0.10); }
-    .card[data-brand="chatgpt"]     { --card-brand: #10a37f; --card-brand-lighter: rgba(16, 163, 127, 0.35); --card-brand-shadow: rgba(16, 163, 127, 0.10); }
-    .card[data-brand="gemini"]      { --card-brand: #4285f4; --card-brand-lighter: rgba(66, 133, 244, 0.35); --card-brand-shadow: rgba(66, 133, 244, 0.10); }
-    .card[data-brand="jules"]       { --card-brand: #1a73e8; --card-brand-lighter: rgba(26, 115, 232, 0.35); --card-brand-shadow: rgba(26, 115, 232, 0.10); }
-    .card[data-brand="studioos"]     { --card-brand: #059669; --card-brand-lighter: rgba(5, 150, 105, 0.35); --card-brand-shadow: rgba(5, 150, 105, 0.10); }
-    .card[data-brand="github"]       { --card-brand: #6e5494; --card-brand-lighter: rgba(110, 84, 148, 0.35); --card-brand-shadow: rgba(110, 84, 148, 0.10); }
-    .card[data-brand="zero2claude"]  { --card-brand: #f59e0b; --card-brand-lighter: rgba(245, 158, 11, 0.35); --card-brand-shadow: rgba(245, 158, 11, 0.10); }
-    .card[data-brand="notebooklm"]   { --card-brand: #4b7bec; --card-brand-lighter: rgba(75, 123, 236, 0.35); --card-brand-shadow: rgba(75, 123, 236, 0.10); }
+    .card[data-brand="cisco"]          { --card-brand: #003366; --card-brand-lighter: rgba(0, 51, 102, 0.35); --card-brand-shadow: rgba(0, 51, 102, 0.12); }
+    .card[data-brand="skillsforall"]   { --card-brand: #e11d48; --card-brand-lighter: rgba(225, 29, 72, 0.35); --card-brand-shadow: rgba(225, 29, 72, 0.10); }
+    .card[data-brand="claude"]         { --card-brand: #d97757; --card-brand-lighter: rgba(217, 119, 87, 0.35); --card-brand-shadow: rgba(217, 119, 87, 0.10); }
+    .card[data-brand="chatgpt"]        { --card-brand: #10a37f; --card-brand-lighter: rgba(16, 163, 127, 0.35); --card-brand-shadow: rgba(16, 163, 127, 0.10); }
+    .card[data-brand="gemini"]         { --card-brand: #4285f4; --card-brand-lighter: rgba(66, 133, 244, 0.35); --card-brand-shadow: rgba(66, 133, 244, 0.10); }
+    .card[data-brand="jules"]          { --card-brand: #1a73e8; --card-brand-lighter: rgba(26, 115, 232, 0.35); --card-brand-shadow: rgba(26, 115, 232, 0.10); }
+    .card[data-brand="studioos"]       { --card-brand: #059669; --card-brand-lighter: rgba(5, 150, 105, 0.35); --card-brand-shadow: rgba(5, 150, 105, 0.10); }
+    .card[data-brand="github"]         { --card-brand: #6e5494; --card-brand-lighter: rgba(110, 84, 148, 0.35); --card-brand-shadow: rgba(110, 84, 148, 0.10); }
+    .card[data-brand="zero2claude"]    { --card-brand: #f59e0b; --card-brand-lighter: rgba(245, 158, 11, 0.35); --card-brand-shadow: rgba(245, 158, 11, 0.10); }
+    .card[data-brand="notebooklm"]     { --card-brand: #4b7bec; --card-brand-lighter: rgba(75, 123, 236, 0.35); --card-brand-shadow: rgba(75, 123, 236, 0.10); }
+    .card[data-brand="tryhackme"]      { --card-brand: #ff6b35; --card-brand-lighter: rgba(255, 107, 53, 0.35); --card-brand-shadow: rgba(255, 107, 53, 0.10); }
+    .card[data-brand="hackthebox"]     { --card-brand: #22c55e; --card-brand-lighter: rgba(34, 197, 94, 0.35); --card-brand-shadow: rgba(34, 197, 94, 0.10); }
+    .card[data-brand="khan"]           { --card-brand: #14bf96; --card-brand-lighter: rgba(20, 191, 150, 0.35); --card-brand-shadow: rgba(20, 191, 150, 0.10); }
+    .card[data-brand="perplexity"]     { --card-brand: #20b2aa; --card-brand-lighter: rgba(32, 178, 170, 0.35); --card-brand-shadow: rgba(32, 178, 170, 0.10); }
+    .card[data-brand="stackable"]      { --card-brand: #8b5cf6; --card-brand-lighter: rgba(139, 92, 246, 0.35); --card-brand-shadow: rgba(139, 92, 246, 0.10); }
+    .card[data-brand="bitwarden"]      { --card-brand: #175ddc; --card-brand-lighter: rgba(23, 93, 220, 0.35); --card-brand-shadow: rgba(23, 93, 220, 0.10); }
+    .card[data-brand="ublock"]         { --card-brand: #c0392b; --card-brand-lighter: rgba(192, 57, 43, 0.35); --card-brand-shadow: rgba(192, 57, 43, 0.10); }
+    .card[data-brand="wappalyzer"]     { --card-brand: #9b59b6; --card-brand-lighter: rgba(155, 89, 182, 0.35); --card-brand-shadow: rgba(155, 89, 182, 0.10); }
+    .card[data-brand="obsidian"]       { --card-brand: #7c3aed; --card-brand-lighter: rgba(124, 58, 237, 0.35); --card-brand-shadow: rgba(124, 58, 237, 0.10); }
 
     /* ===== LEARNING RESOURCES — single card ===== */
     .resources-grid {
@@ -588,7 +622,7 @@
     }
     .nav-logo { font-family: var(--f-display); font-size: 20px; font-weight: 900; color: #fff; text-transform: uppercase; text-decoration: none; letter-spacing: .04em; }
     .nav-logo span { color: var(--color-accent-primary); margin-left: 4px; }
-    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links { display: flex; gap: 16px; align-items: center; }
     .nav-links a { font-family: var(--f-mono); font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; text-decoration: none; transition: color 0.2s; letter-spacing: .12em; }
     .nav-links a:hover { color: var(--color-accent-secondary); }
     
@@ -614,11 +648,12 @@
     <div class="nav-container">
       <a href="index.html" class="nav-logo">NetAcad<span>Portal</span></a>
       <div class="nav-links">
-        <a href="index.html">Dashboard</a>
-        <a href="netacad-landing.html">Program Page</a>
-        <a href="netacad-one-pager.html">One-Pager</a>
-        <a href="netacad-comms-portfolio.html">Portfolio</a>
-        <a href="parent-letter.html">Parent Letter</a>
+        <a href="#core-curriculum">Curriculum</a>
+        <a href="#training">Training</a>
+        <a href="#ai-arsenal">AI Tools</a>
+        <a href="#extensions">Extensions</a>
+        <a href="#productivity">Productivity</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
@@ -627,40 +662,121 @@
 
     <!-- ===== HERO ===== -->
     <header class="hero">
-      <div class="hero-eyebrow">Student Access Dashboard</div>
+      <div class="hero-eyebrow">Student Tech Launchpad</div>
       <div class="hero-wordmark">
         The City School <span class="highlight">×</span> <span class="accent">Cisco NetAcad</span>
       </div>
-      <p class="hero-tagline">Your launchpad for tech.</p>
+      <p class="hero-tagline">Your central hub for mastering Networking, Cybersecurity, and AI.</p>
     </header>
 
-    <!-- ===== LEARNING RESOURCES ===== -->
-    <section>
-      <span class="section-label">Learning Resources</span>
-      <div class="resources-grid">
+    <!-- ===== CORE CURRICULUM ===== -->
+    <section id="core-curriculum">
+      <span class="section-label">Core Curriculum</span>
+      <p class="section-subtitle">The foundation of your technical journey</p>
+      <div class="card-grid">
+
+        <!-- Cisco NetAcad -->
         <a href="https://www.netacad.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="cisco">
           <div class="card-icon">
-            <!-- Network globe icon -->
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
             </svg>
           </div>
+          <span class="card-tag">Primary</span>
           <div class="card-title">Cisco NetAcad</div>
-          <div class="card-desc">Your core curriculum. Log in to access courses, labs, and certifications.</div>
+          <div class="card-desc">Your primary classroom for networking and security certifications. Log in to access courses, labs, and hands-on practice.</div>
           <span class="card-link">
-            Open
+            Log In
             <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
           </span>
         </a>
+
+        <!-- Skills For All -->
+        <a href="https://skillsforall.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="skillsforall">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 12.18L3.82 10.09 12 5.18l8.18 4.91L12 15.18zM12 19l-7-3.82V13.5l7 3.82 7-3.82v1.68L12 19z"/></svg>
+          </div>
+          <span class="card-tag">Free</span>
+          <div class="card-title">Skills For All</div>
+          <div class="card-desc">Free, self-paced foundational courses from Cisco. Perfect for getting up to speed on core concepts.</div>
+          <span class="card-link">
+            Explore
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
       </div>
     </section>
 
-    <!-- ===== AI & DEVELOPER TOOLS ===== -->
-    <section>
-      <span class="section-label">Tools</span>
+    <!-- ===== INTERACTIVE TRAINING GROUNDS ===== -->
+    <section id="training">
+      <span class="section-label">Interactive Training Grounds</span>
+      <p class="section-subtitle">Where theory meets practice through hands-on labs and real-world scenarios</p>
+      <div class="card-grid">
 
-      <!-- AI Chat & Assistants -->
-      <div class="category-label">AI Chat &amp; Assistants</div>
+        <!-- TryHackMe -->
+        <a href="https://tryhackme.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="tryhackme">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          </div>
+          <span class="card-tag">Beginner Path</span>
+          <div class="card-title">TryHackMe</div>
+          <div class="card-desc">Beginner-friendly cybersecurity labs with guided learning paths. Start with Pre-Security to build foundational knowledge.</div>
+          <span class="card-link">
+            Start Path
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- Hack The Box -->
+        <a href="https://academy.hackthebox.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="hackthebox">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 013 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9zM12 4.15L6.04 7.5 12 10.85l5.96-3.35L12 4.15zM5 15.91l6 3.38v-6.71L5 9.21v6.7zM13 12.58v6.71l6-3.38v-6.7l-6 3.37z"/></svg>
+          </div>
+          <span class="card-tag">Intermediate</span>
+          <div class="card-title">Hack The Box</div>
+          <div class="card-desc">Advanced hands-on security challenges. Begin with the Introduction to Networking module for structured learning.</div>
+          <span class="card-link">
+            Explore
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- Khan Academy: Internet 101 -->
+        <a href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:the-internet" target="_blank" rel="noopener noreferrer" class="card" data-brand="khan">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="card-tag">Free Course</span>
+          <div class="card-title">Khan Academy: Internet 101</div>
+          <div class="card-desc">Free video course on how the internet works. Learn networking fundamentals from the ground up.</div>
+          <span class="card-link">
+            Watch
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- Khan Academy: AI for Education -->
+        <a href="https://www.khanacademy.org/college-careers-more/ai-for-education" target="_blank" rel="noopener noreferrer" class="card" data-brand="khan">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z"/></svg>
+          </div>
+          <span class="card-tag">Free Course</span>
+          <div class="card-title">Khan Academy: AI for Education</div>
+          <div class="card-desc">Comprehensive course on AI fundamentals, ethics, and practical applications. Perfect for understanding AI's role in tech.</div>
+          <span class="card-link">
+            Learn
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== THE AI ARSENAL ===== -->
+    <section id="ai-arsenal">
+      <span class="section-label">The AI Arsenal</span>
+      <p class="section-subtitle">Intelligent partners for research, coding, and problem-solving</p>
       <div class="card-grid">
 
         <!-- Claude -->
@@ -668,21 +784,23 @@
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
           </div>
+          <span class="card-tag">Reasoning</span>
           <div class="card-title">Claude / Claude Code</div>
-          <div class="card-desc">Anthropic's AI — chat, code, and problem-solve.</div>
+          <div class="card-desc">Anthropic's AI for complex reasoning, code generation, and detailed analysis.</div>
           <span class="card-link">
             Open
             <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
           </span>
         </a>
 
-        <!-- ChatGPT / Codex -->
+        <!-- ChatGPT -->
         <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="chatgpt">
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
           </div>
+          <span class="card-tag">General</span>
           <div class="card-title">ChatGPT / Codex</div>
-          <div class="card-desc">OpenAI's AI assistant and code generation.</div>
+          <div class="card-desc">OpenAI's versatile AI assistant. Use Codex for code generation and general problem-solving across any domain.</div>
           <span class="card-link">
             Open
             <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
@@ -694,72 +812,37 @@
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
+          <span class="card-tag">Multimodal</span>
           <div class="card-title">Gemini</div>
-          <div class="card-desc">Google's multimodal AI — research, writing, coding.</div>
+          <div class="card-desc">Google's multimodal AI for research, writing, and coding. Integrates seamlessly with Google Workspace.</div>
           <span class="card-link">
             Open
             <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
           </span>
         </a>
 
-      </div>
-
-      <!-- AI Coding & Automation -->
-      <div class="category-label">AI Coding &amp; Automation</div>
-      <div class="card-grid">
+        <!-- Perplexity -->
+        <a href="https://perplexity.ai" target="_blank" rel="noopener noreferrer" class="card" data-brand="perplexity">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <span class="card-tag">Research</span>
+          <div class="card-title">Perplexity</div>
+          <div class="card-desc">AI-powered search with real-time information and citations. Perfect for researching current topics and verifying facts.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
 
         <!-- Jules -->
         <a href="https://jules.google.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="jules">
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
           </div>
+          <span class="card-tag">Autonomous Coding</span>
           <div class="card-title">Jules</div>
-          <div class="card-desc">Google's autonomous coding agent.</div>
-          <span class="card-link">
-            Open
-            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-          </span>
-        </a>
-
-        <!-- StudioOS -->
-        <a href="https://studioos.dev" target="_blank" rel="noopener noreferrer" class="card" data-brand="studioos">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
-          </div>
-          <div class="card-title">StudioOS</div>
-          <div class="card-desc">Your productivity OS — organize, build, and ship.</div>
-          <span class="card-link">
-            Open
-            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-          </span>
-        </a>
-
-      </div>
-
-      <!-- Dev Platforms & Resources -->
-      <div class="category-label">Dev Platforms &amp; Resources</div>
-      <div class="card-grid">
-
-        <!-- GitHub -->
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="github">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          </div>
-          <div class="card-title">GitHub</div>
-          <div class="card-desc">Code hosting, collaboration, and version control. Your dev portfolio starts here.</div>
-          <span class="card-link">
-            Open
-            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-          </span>
-        </a>
-
-        <!-- zero2claude.dev -->
-        <a href="https://zero2claude.dev" target="_blank" rel="noopener noreferrer" class="card" data-brand="zero2claude">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
-          </div>
-          <div class="card-title">zero2claude.dev</div>
-          <div class="card-desc">A curated path from zero to Claude — tutorials, prompts, and practical AI skills.</div>
+          <div class="card-desc">Google's autonomous coding agent — writes, debugs, and explains code on your behalf.</div>
           <span class="card-link">
             Open
             <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
@@ -771,8 +854,162 @@
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
           </div>
+          <span class="card-tag">Research Assistant</span>
           <div class="card-title">NotebookLM</div>
-          <div class="card-desc">Google's AI research assistant — upload docs, get summaries, ask questions.</div>
+          <div class="card-desc">Google's AI research assistant — upload your docs, get summaries, and ask questions.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== ESSENTIAL BROWSER EXTENSIONS ===== -->
+    <section id="extensions">
+      <span class="section-label">Essential Browser Extensions</span>
+      <p class="section-subtitle">Secure, organize, and optimize your digital workspace</p>
+      <div class="card-grid">
+
+        <!-- Stackable -->
+        <a href="https://chromewebstore.google.com/detail/stackable-bookmark-and-ta/coonllecklpiahhjkmnjidiaccefopli" target="_blank" rel="noopener noreferrer" class="card" data-brand="stackable">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>
+          </div>
+          <span class="card-tag">Organization</span>
+          <div class="card-title">Stackable</div>
+          <div class="card-desc">Powerful bookmark and tab organizer. Keep your research organized and your workspace clutter-free.</div>
+          <span class="card-link">
+            Install
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- Bitwarden Extension -->
+        <a href="https://chromewebstore.google.com/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb" target="_blank" rel="noopener noreferrer" class="card" data-brand="bitwarden">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          </div>
+          <span class="card-tag">Security</span>
+          <div class="card-title">Bitwarden Extension</div>
+          <div class="card-desc">Secure password manager extension. Auto-fill credentials safely while browsing.</div>
+          <span class="card-link">
+            Install
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- uBlock Origin -->
+        <a href="https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm" target="_blank" rel="noopener noreferrer" class="card" data-brand="ublock">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="card-tag">Privacy</span>
+          <div class="card-title">uBlock Origin</div>
+          <div class="card-desc">The most efficient ad and tracker blocker. Improves privacy and page load times without slowing your browser.</div>
+          <span class="card-link">
+            Install
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- Wappalyzer -->
+        <a href="https://chromewebstore.google.com/detail/wappalyzer-technology-pro/gppongmhjkpfnbxohwllhakjesdjmjjc" target="_blank" rel="noopener noreferrer" class="card" data-brand="wappalyzer">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          </div>
+          <span class="card-tag">Learning</span>
+          <div class="card-title">Wappalyzer</div>
+          <div class="card-desc">Identify technologies used on any website. Learn what tech stacks companies use — invaluable for your tech education.</div>
+          <span class="card-link">
+            Install
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTIVITY & PROFESSIONAL GROWTH ===== -->
+    <section id="productivity">
+      <span class="section-label">Productivity &amp; Professional Growth</span>
+      <p class="section-subtitle">Build your personal knowledge base and showcase your work</p>
+
+      <!-- Security & Password Management -->
+      <div class="category-label">Security &amp; Password Management</div>
+      <div class="card-grid">
+
+        <!-- Bitwarden Desktop -->
+        <a href="https://bitwarden.com/download/" target="_blank" rel="noopener noreferrer" class="card" data-brand="bitwarden">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+          </div>
+          <span class="card-tag">Essential</span>
+          <div class="card-title">Bitwarden Desktop App</div>
+          <div class="card-desc">Comprehensive password vault management. Store, organize, and secure all your credentials. Use alongside the browser extension.</div>
+          <span class="card-link">
+            Download
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+      </div>
+
+      <!-- Knowledge & Portfolio -->
+      <div class="category-label">Knowledge &amp; Portfolio</div>
+      <div class="card-grid">
+
+        <!-- StudioOS -->
+        <a href="https://studioos.dev" target="_blank" rel="noopener noreferrer" class="card" data-brand="studioos">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
+          </div>
+          <span class="card-tag">Knowledge Base</span>
+          <div class="card-title">StudioOS</div>
+          <div class="card-desc">Your personal knowledge management platform. Organize notes, projects, and ideas in one powerful system.</div>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="github">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </div>
+          <span class="card-tag">Portfolio</span>
+          <div class="card-title">GitHub</div>
+          <div class="card-desc">Host your code projects and build your developer portfolio. Essential for showcasing your work to employers.</div>
+          <span class="card-link">
+            Visit
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- Obsidian -->
+        <a href="https://obsidian.md" target="_blank" rel="noopener noreferrer" class="card" data-brand="obsidian">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm6.5 14.6L12 20.4l-6.5-3.8V8.4L12 4.6l6.5 3.8v8.2zM12 6.2L7.5 8.8 12 11.4l4.5-2.6L12 6.2z"/></svg>
+          </div>
+          <span class="card-tag">Notes</span>
+          <div class="card-title">Obsidian</div>
+          <div class="card-desc">Your second brain for note-taking and knowledge management. Build a personal wiki of everything you learn.</div>
+          <span class="card-link">
+            Download
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- zero2claude.dev -->
+        <a href="https://zero2claude.dev" target="_blank" rel="noopener noreferrer" class="card" data-brand="zero2claude">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+          </div>
+          <span class="card-tag">AI Learning</span>
+          <div class="card-title">zero2claude.dev</div>
+          <div class="card-desc">A curated path from zero to Claude — tutorials, prompts, and practical AI skills.</div>
           <span class="card-link">
             Open
             <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
@@ -783,9 +1020,19 @@
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section>
-      <span class="section-label">Contact</span>
+    <section id="contact">
+      <span class="section-label">Support &amp; Contact</span>
+      <p class="section-subtitle">We are here to help you succeed</p>
       <div class="contact-row">
+
+        <div class="contact-card">
+          <div class="contact-name">Toshon Jennings</div>
+          <div class="contact-title">IT Coordinator</div>
+          <a class="contact-email" href="mailto:tjennings@cityschool.org" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email
+          </a>
+        </div>
 
         <div class="contact-card">
           <div class="contact-name">Krista Wieder</div>
@@ -798,17 +1045,8 @@
 
         <div class="contact-card">
           <div class="contact-name">John Deaton</div>
-          <div class="contact-title">Middle / High School Principal</div>
+          <div class="contact-title">Principal</div>
           <a class="contact-email" href="mailto:jdeaton@cityschool.org" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Email
-          </a>
-        </div>
-
-        <div class="contact-card">
-          <div class="contact-name">Toshon Jennings</div>
-          <div class="contact-title">IT Coordinator</div>
-          <a class="contact-email" href="mailto:tjennings@cityschool.org" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Email
           </a>
@@ -831,7 +1069,7 @@
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
-      <p>&copy; 2024 The City School × Cisco NetAcad. All rights reserved.</p>
+      <p>&copy; 2026 The City School × Cisco NetAcad. All rights reserved.</p>
     </div>
   </footer>
 
