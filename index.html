@@ -448,6 +448,10 @@
     .card[data-brand="anyrun"]         { --card-brand: #00c3a5; --card-brand-lighter: rgba(0, 195, 165, 0.35); --card-brand-shadow: rgba(0, 195, 165, 0.10); }
     .card[data-brand="virustotal"]     { --card-brand: #394b9f; --card-brand-lighter: rgba(57, 75, 159, 0.35); --card-brand-shadow: rgba(57, 75, 159, 0.10); }
     .card[data-brand="hybridanalysis"] { --card-brand: #008fcc; --card-brand-lighter: rgba(0, 143, 204, 0.35); --card-brand-shadow: rgba(0, 143, 204, 0.10); }
+    .card[data-brand="stackblitz"]     { --card-brand: #1389fd; --card-brand-lighter: rgba(19, 137, 253, 0.35); --card-brand-shadow: rgba(19, 137, 253, 0.10); }
+    .card[data-brand="codepen"]         { --card-brand: #47cf73; --card-brand-lighter: rgba(71, 207, 115, 0.35); --card-brand-shadow: rgba(71, 207, 115, 0.10); }
+    .card[data-brand="devdocs"]         { --card-brand: #56b3b4; --card-brand-lighter: rgba(86, 179, 180, 0.35); --card-brand-shadow: rgba(86, 179, 180, 0.10); }
+    .card[data-brand="explainshell"]    { --card-brand: #2980b9; --card-brand-lighter: rgba(41, 128, 185, 0.35); --card-brand-shadow: rgba(41, 128, 185, 0.10); }
 
     /* ===== LEARNING RESOURCES — single card ===== */
     .resources-grid {
@@ -921,6 +925,82 @@
               </span>
             </a>
           </div>
+
+          <!-- In-Browser Playgrounds & Dev Utilities -->
+          <div class="category-label">In-Browser Playgrounds &amp; Dev Utilities</div>
+          <div class="card-grid">
+
+            <!-- GitHub1s -->
+            <a href="https://github1s.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="github">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              </div>
+              <span class="card-tag">Code Viewer</span>
+              <div class="card-title">GitHub1s</div>
+              <div class="card-desc">Fast, read-only code inspection. Open any GitHub repository in a browser-based VS Code interface (replaces git clone).</div>
+              <span class="card-link">
+                Open
+                <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+              </span>
+            </a>
+
+            <!-- StackBlitz / CodeSandbox -->
+            <a href="https://stackblitz.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="stackblitz">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+              </div>
+              <span class="card-tag">In-Browser IDE</span>
+              <div class="card-title">StackBlitz / CodeSandbox</div>
+              <div class="card-desc">Run and edit web apps instantly in the browser. Emulates a local Node.js environment with zero setup.</div>
+              <span class="card-link">
+                Code
+                <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+              </span>
+            </a>
+
+            <!-- CodePen -->
+            <a href="https://codepen.io" target="_blank" rel="noopener noreferrer" class="card" data-brand="codepen">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <span class="card-tag">UI Playground</span>
+              <div class="card-title">CodePen</div>
+              <div class="card-desc">Quick UI/UX sketching and front-end experiments. Write HTML, CSS, and JS in a live-previewing sandbox.</div>
+              <span class="card-link">
+                Sketch
+                <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+              </span>
+            </a>
+
+            <!-- DevDocs.io -->
+            <a href="https://devdocs.io" target="_blank" rel="noopener noreferrer" class="card" data-brand="devdocs">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              </div>
+              <span class="card-tag">API Reference</span>
+              <div class="card-title">DevDocs.io</div>
+              <div class="card-desc">A fast, centralized dictionary for code syntax. Combine multiple API documentations into a single search interface.</div>
+              <span class="card-link">
+                Search Docs
+                <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+              </span>
+            </a>
+
+            <!-- ExplainShell -->
+            <a href="https://explainshell.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="explainshell">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 12H4v-2h8v2zm-4-4L4 8V6l4 4-4 4V12z"/></svg>
+              </div>
+              <span class="card-tag">CLI Guide</span>
+              <div class="card-title">ExplainShell</div>
+              <div class="card-desc">Deconstruct complex command-line arguments. Write terminal commands and see exactly what each argument and flag does.</div>
+              <span class="card-link">
+                Explain
+                <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+              </span>
+            </a>
+
+          </div>
         </div>
       </div>
     </section>
@@ -1162,19 +1242,6 @@
               </span>
             </a>
 
-            <!-- GitHub1s -->
-            <a href="https://github1s.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="github">
-              <div class="card-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-              </div>
-              <span class="card-tag">Code Viewer</span>
-              <div class="card-title">GitHub1s</div>
-              <div class="card-desc">Read GitHub code in the browser with a full VS Code interface. Just add '1s' to any GitHub URL to inspect source files instantly.</div>
-              <span class="card-link">
-                Open
-                <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-              </span>
-            </a>
 
             <!-- Obsidian -->
             <a href="https://obsidian.md" target="_blank" rel="noopener noreferrer" class="card" data-brand="obsidian">
