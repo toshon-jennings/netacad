@@ -385,6 +385,9 @@
     .card[data-brand="ublock"]         { --card-brand: #c0392b; --card-brand-lighter: rgba(192, 57, 43, 0.35); --card-brand-shadow: rgba(192, 57, 43, 0.10); }
     .card[data-brand="wappalyzer"]     { --card-brand: #9b59b6; --card-brand-lighter: rgba(155, 89, 182, 0.35); --card-brand-shadow: rgba(155, 89, 182, 0.10); }
     .card[data-brand="obsidian"]       { --card-brand: #7c3aed; --card-brand-lighter: rgba(124, 58, 237, 0.35); --card-brand-shadow: rgba(124, 58, 237, 0.10); }
+    .card[data-brand="anyrun"]         { --card-brand: #00c3a5; --card-brand-lighter: rgba(0, 195, 165, 0.35); --card-brand-shadow: rgba(0, 195, 165, 0.10); }
+    .card[data-brand="virustotal"]     { --card-brand: #394b9f; --card-brand-lighter: rgba(57, 75, 159, 0.35); --card-brand-shadow: rgba(57, 75, 159, 0.10); }
+    .card[data-brand="hybridanalysis"] { --card-brand: #008fcc; --card-brand-lighter: rgba(0, 143, 204, 0.35); --card-brand-shadow: rgba(0, 143, 204, 0.10); }
 
     /* ===== LEARNING RESOURCES — single card ===== */
     .resources-grid {
@@ -712,6 +715,8 @@
     <section id="training">
       <span class="section-label">Interactive Training Grounds</span>
       <p class="section-subtitle">Where theory meets practice through hands-on labs and real-world scenarios</p>
+      <!-- Guided Labs & Foundations -->
+      <div class="category-label">Guided Labs &amp; Foundations</div>
       <div class="card-grid">
 
         <!-- TryHackMe -->
@@ -770,6 +775,53 @@
           </span>
         </a>
 
+      </div>
+
+      <!-- Malware Analysis & Threat Investigation -->
+      <div class="category-label">Malware Analysis &amp; Threat Investigation</div>
+      <div class="card-grid">
+
+        <!-- app.any.run -->
+        <a href="https://app.any.run" target="_blank" rel="noopener noreferrer" class="card" data-brand="anyrun">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v10z"/></svg>
+          </div>
+          <span class="card-tag">Interactive Sandbox</span>
+          <div class="card-title">app.any.run</div>
+          <div class="card-desc">Primary interactive sandbox for dynamic malware analysis. Beginner-friendly and cloud-based.</div>
+          <span class="card-link">
+            Analyze
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- VirusTotal -->
+        <a href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="virustotal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15.41L7.5 13.91l1.41-1.41L11 14.59l5.09-5.09L17.5 10.91 11 17.41z"/></svg>
+          </div>
+          <span class="card-tag">Quick Scan</span>
+          <div class="card-title">VirusTotal</div>
+          <div class="card-desc">Quick file and URL scanning. The most accessible entry point for threat investigation.</div>
+          <span class="card-link">
+            Scan
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
+
+        <!-- Hybrid Analysis -->
+        <a href="https://hybrid-analysis.com" target="_blank" rel="noopener noreferrer" class="card" data-brand="hybridanalysis">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          </div>
+          <span class="card-tag">Detailed Analysis</span>
+          <div class="card-title">Hybrid Analysis</div>
+          <div class="card-desc">Free alternative for detailed analysis and custom sandboxing environments.</div>
+          <span class="card-link">
+            Analyze
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </span>
+        </a>
       </div>
     </section>
 
